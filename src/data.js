@@ -9,7 +9,9 @@ export const addressLines = [
   "New Delhi, Delhi 110071",
 ];
 export const addressText = addressLines.join(", ");
-export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${addressText}, India`)}`;
+export const mapsQuery = `${addressText}, India`;
+export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+export const mapsEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&hl=en&z=16&output=embed`;
 
 export const socials = [
   { label: "Facebook", href: "https://www.facebook.com/" },
@@ -27,7 +29,7 @@ export const partnerLogos = Array.from({ length: 17 }, (_, index) => {
 export const customerLogos = ["01", "02", "03"].map((id) => `/customers/${id}.png`);
 
 export const stats = [
-  { value: 10, suffix: "", label: "Satisfied Clients" },
+  { value: 10, suffix: "k", label: "Satisfied Clients" },
   { value: 20, suffix: "+", label: "Security Consultants" },
   { value: 5, suffix: "+", label: "Active Engagements" },
   { value: 2, suffix: "+", label: "Years of Experience" },
@@ -47,9 +49,10 @@ export const services = [
   {
     slug: "professional-services",
     title: "Professional Services",
+    heroImage: "/services/banners/professional-services.png",
     kicker: "Consulting, implementation, and support",
     summary:
-      "Expert help across cybersecurity, network management, application delivery, cloud security, and DevOps, shaped around how your business actually runs.",
+      "Fencesense Professional Services offers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. Our team provides tailored consulting, implementation, and support to help businesses optimize digital infrastructure, enhance security, and streamline operations.",
     paragraphs: [
       "Fencesense delivers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. The team provides tailored consulting, implementation, and support so businesses can tighten security and simplify day-to-day operations.",
       "Engagements cover CNAPP, CSPM, network security, EDR, and application security. We stay with you from the first design conversation through rollout and handover, so the work fits the tools and people you already have.",
@@ -64,6 +67,7 @@ export const services = [
   {
     slug: "managed-security-services",
     title: "Managed Security Services",
+    heroImage: "/services/banners/managed-security-services.png",
     kicker: "SOC, monitoring, and response",
     summary:
       "A managed security function that watches the environment, investigates alerts, and helps you respond before an incident spreads.",
@@ -81,6 +85,7 @@ export const services = [
   {
     slug: "on-demand-professional-expertise",
     title: "On-Demand Professional Expertise",
+    heroImage: "/services/banners/on-demand-professional-expertise.png",
     kicker: "Specialists when the workload spikes",
     summary:
       "Senior security, cloud, and network specialists you can bring in for a project, a gap, or a stretch of extra demand.",
@@ -98,6 +103,7 @@ export const services = [
   {
     slug: "cloud-services",
     title: "Cloud Services",
+    heroImage: "/services/banners/cloud-services.png",
     kicker: "Design, protect, and run the cloud",
     summary:
       "Cloud architecture, security, and operations for teams that need the environment to stay reliable as it grows.",
@@ -115,6 +121,7 @@ export const services = [
   {
     slug: "bas-penetration-testing",
     title: "BAS & Penetration Testing",
+    heroImage: "/services/banners/bas-penetration-testing.png",
     kicker: "Find the gaps before someone else does",
     summary:
       "Breach and attack simulation plus penetration testing, so you can see which controls hold and which patches cannot wait.",
@@ -132,6 +139,7 @@ export const services = [
   {
     slug: "threat-hunting",
     title: "Threat Hunting",
+    heroImage: "/services/banners/threat-hunting.png",
     kicker: "Look for what alerts miss",
     summary:
       "Hypothesis-led hunts across endpoints, identity, and cloud so quiet intrusions do not sit unnoticed.",
@@ -149,6 +157,7 @@ export const services = [
   {
     slug: "breach-detection",
     title: "Breach Detection",
+    heroImage: "/services/banners/breach-detection.png",
     kicker: "See an intrusion while it is still small",
     summary:
       "Detection content, telemetry review, and response support aimed at catching a breach early and limiting the blast radius.",
@@ -170,6 +179,7 @@ export const solutions = [
     slug: "security-solution",
     title: "Security Solution",
     icon: "/solutions/security.png",
+    heroImage: "/solutions/banners/security-solution.jpg",
     kicker: "Protection that keeps up with the threat",
     summary:
       "At Fencesense Technologies Pvt. Ltd., we deliver comprehensive security solutions to safeguard businesses against evolving cyber threats. Our offerings include proactive cybersecurity, managed SOC services, and advanced threat intelligence for IPs, domains, and URLs.",
@@ -188,6 +198,7 @@ export const solutions = [
     slug: "network-solution",
     title: "Network Solution",
     icon: "/solutions/network.png",
+    heroImage: "/solutions/banners/network-solution.jpg",
     kicker: "Networks that stay fast and contained",
     summary:
       "Fencesense designs and manages enterprise networks so connectivity stays reliable, traffic is easier to defend, and an incident cannot spread unchecked across the estate.",
@@ -206,6 +217,7 @@ export const solutions = [
     slug: "application-delivery-solution",
     title: "Application Delivery Solution",
     icon: "/solutions/application.png",
+    heroImage: "/solutions/banners/application-delivery-solution.jpg",
     kicker: "Applications that stay available",
     summary:
       "At Fencesense Technologies Pvt. Ltd., we provide tailored application delivery solutions that keep applications secure, fast, and always available. Our work covers performance, seamless deployments, and the controls that protect traffic on the way in.",
@@ -224,6 +236,7 @@ export const solutions = [
     slug: "identity-access-management-iam",
     title: "Identity & Access Management (IAM)",
     icon: "/solutions/iam.png",
+    heroImage: "/solutions/banners/identity-access-management-iam.jpeg",
     kicker: "The right access, and nothing extra",
     summary:
       "We help organisations put authentication, identity governance, and privileged access on a footing they can audit, so people and services get only the access they need.",
@@ -242,6 +255,7 @@ export const solutions = [
     slug: "cloud-solution",
     title: "Cloud Solution",
     icon: "/solutions/cloud.png",
+    heroImage: "/solutions/banners/cloud-solution.png",
     kicker: "Secure platforms that can scale",
     summary:
       "Fencesense Technologies Pvt. Ltd. offers advanced cloud solutions to help businesses optimize, secure, and scale digital operations. We design robust architectures, protect data, and manage cloud environments as they grow.",
@@ -260,6 +274,7 @@ export const solutions = [
     slug: "digital-solutions",
     title: "Digital Solutions",
     icon: "/solutions/digital.png",
+    heroImage: "/solutions/banners/digital-solutions.png",
     kicker: "Experiences, commerce, and automation",
     summary:
       "Our digital solutions cover web and mobile UI/UX design, eCommerce development, application consulting, network delivery, and automation, built to improve digital experience and support the way the business actually runs.",

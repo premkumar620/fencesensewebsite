@@ -13,6 +13,25 @@ import {
   testimonials,
 } from "../data";
 
+const focusAreas = [
+  {
+    title: "Cyber Security",
+    text: "Monitoring, threat intelligence, and incident response aligned to your estate.",
+  },
+  {
+    title: "Network",
+    text: "Design and operations that keep connectivity reliable when pressure hits.",
+  },
+  {
+    title: "Application Delivery",
+    text: "Performance, deployment, and protection for business-critical apps.",
+  },
+  {
+    title: "Cloud & IAM",
+    text: "Platforms and access controls that leadership can audit and teams can run.",
+  },
+];
+
 export default function Home() {
   const { openEnquiry } = useEnquiry();
   const [kicker, title] = useBannerTypewriter("Your Security, Our Passion", "Welcome to Fencesense");
@@ -48,54 +67,68 @@ export default function Home() {
 
       <LogoMarquee logos={partnerLogos} label="Partners companies worldwide" />
 
-      <section className="band about-band">
+      <section className="band about-band" id="about">
         <div className="container">
-          <div className="about-head">
-            <div className="about-kicker-wrap">
-              <span className="accent-line" aria-hidden="true" />
-              <p className="kicker">
-                About
-                <br />
-                Fencesense
+          <header className="about-intro">
+            <p className="about-eyebrow">About Fencesense</p>
+            <div className="about-intro-copy">
+              <h2>Leading the charge in cyber defence innovation.</h2>
+              <p>
+                Fencesense Technologies Pvt. Ltd. helps organisations secure networks, cloud platforms, and applications
+                with consulting, managed SOC, and specialist delivery. We stay after launch so controls keep working as
+                the business changes.
               </p>
             </div>
-            <div>
-              <h2>About Fencesense</h2>
-              <p>Leading the charge in cyber defence innovation.</p>
-            </div>
-          </div>
+          </header>
 
-          <div className="about-grid">
-            <div className="word-stack" aria-label="Focus areas">
-              <span className="solid">Cyber Security</span>
-              <span className="stroke">Network</span>
-              <span className="muted">Application Delivery</span>
-              <span className="stroke wrap">Cloud, Identity and Access Management</span>
-            </div>
-
-            <figure className="about-photo">
-              <img src="/about/analyst.jpg" alt="Analyst reviewing live network and threat data" />
-            </figure>
-
-            <div className="about-side">
-              <figure className="about-photo">
-                <img src="/about/operations.jpg" alt="Security specialist in the operations centre" />
-              </figure>
-              <ul className="check-list">
-                {offerings.map((item) => (
+          <div className="about-layout">
+            <div className="about-main">
+              <div className="about-focus-grid">
+                {focusAreas.map((item) => (
+                  <article className="about-focus-card" key={item.title}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+              <ul className="about-highlights">
+                {offerings.slice(0, 4).map((item) => (
                   <li key={item}>
                     <CircleCheck />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <Link className="hero-demo" to="/about">
-                <span>
+              <div className="about-actions">
+                <Link className="btn" to="/about">
                   More about us
                   <CircleChevron />
-                </span>
-              </Link>
+                </Link>
+                <button type="button" className="about-link" onClick={openEnquiry}>
+                  Talk to our team
+                </button>
+              </div>
             </div>
+
+            <div className="about-media">
+              <figure className="about-frame primary">
+                <img src="/about/analyst.jpg" alt="Analyst reviewing live network and threat data" />
+                <figcaption>Detection &amp; response</figcaption>
+              </figure>
+              <figure className="about-frame secondary">
+                <img src="/about/operations.jpg" alt="Security specialist in the operations centre" />
+                <figcaption>Operations support</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div className="about-capabilities">
+            <p>What we deliver</p>
+            <ul>
+              {offerings.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -220,57 +253,118 @@ function CountUp({ value, run }) {
   return current;
 }
 
+const TESTIMONIAL_INTERVAL_MS = 7000;
+
 function TestimonialSlider() {
   const [index, setIndex] = useState(0);
-  const [count, setCount] = useState(3);
+  const [paused, setPaused] = useState(false);
+  const item = testimonials[index];
+
+  const go = (next) => {
+    const total = testimonials.length;
+    setIndex(((next % total) + total) % total);
+  };
 
   useEffect(() => {
-    const query = window.matchMedia("(max-width: 980px)");
-    const apply = () => setCount(query.matches ? 1 : 3);
-    apply();
-    query.addEventListener("change", apply);
-    return () => query.removeEventListener("change", apply);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
+    if (paused) return undefined;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return undefined;
+    const timer = window.setInterval(() => {
       setIndex((value) => (value + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+    }, TESTIMONIAL_INTERVAL_MS);
+    return () => window.clearInterval(timer);
+  }, [paused, index]);
 
-  const visible = Array.from({ length: count }, (_, offset) => testimonials[(index + offset) % testimonials.length]);
-  const highlight = count === 3 ? 1 : 0;
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === "ArrowLeft") go(index - 1);
+      if (event.key === "ArrowRight") go(index + 1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [index]);
 
   return (
-    <div>
-      <div className={`quote-grid quotes-${count}`}>
-        {visible.map((item, offset) => (
-          <blockquote key={item.name + item.role} className={offset === highlight ? "is-active" : ""}>
-            <p>{item.quote}</p>
-            <footer>
-              <div>
-                <img src={item.logo} alt="" />
-                <strong>{item.name}</strong>
-                <span>{item.role}</span>
-              </div>
-              <img className="quote-mark" src="/icon-quote.svg" alt="" />
-            </footer>
-          </blockquote>
-        ))}
-      </div>
-      <div className="dots" role="tablist" aria-label="Testimonials">
-        {testimonials.map((item, itemIndex) => (
-          <button
-            key={item.name}
-            type="button"
-            className={itemIndex === index ? "is-active" : ""}
-            aria-label={`Show testimonial from ${item.name}`}
-            onClick={() => setIndex(itemIndex)}
+    <div
+      className="testimonial-shell"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+      }}
+    >
+      <div className="testimonial-stage">
+        <div className="testimonial-stage-top">
+          <p className="testimonial-label">Client note</p>
+          <div className="testimonial-nav">
+            <button type="button" className="testimonial-arrow" aria-label="Previous testimonial" onClick={() => go(index - 1)}>
+              <ArrowBack />
+            </button>
+            <button type="button" className="testimonial-arrow" aria-label="Next testimonial" onClick={() => go(index + 1)}>
+              <ArrowForward />
+            </button>
+          </div>
+        </div>
+
+        <blockquote key={index} className="testimonial-card" aria-live="polite">
+          <img className="testimonial-quote-icon" src="/icon-quote.svg" alt="" />
+          <p>{item.quote}</p>
+          <footer>
+            <img src={item.logo} alt="" />
+            <div>
+              <strong>{item.name}</strong>
+              <span>{item.role}</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <div className="testimonial-progress" aria-hidden="true">
+          <span
+            key={`${index}-${paused ? "paused" : "run"}`}
+            className={`testimonial-progress-bar ${paused ? "is-paused" : ""}`}
           />
+        </div>
+        <p className="testimonial-counter">
+          <span>{String(index + 1).padStart(2, "0")}</span> / {String(testimonials.length).padStart(2, "0")}
+        </p>
+      </div>
+
+      <div className="testimonial-rail" role="tablist" aria-label="Customer testimonials">
+        {testimonials.map((entry, entryIndex) => (
+          <button
+            key={entry.name + entry.role}
+            type="button"
+            role="tab"
+            aria-selected={entryIndex === index}
+            className={entryIndex === index ? "is-active" : ""}
+            onClick={() => go(entryIndex)}
+          >
+            <img src={entry.logo} alt="" />
+            <span>
+              <strong>{entry.name}</strong>
+              <small>{entry.role}</small>
+            </span>
+          </button>
         ))}
       </div>
     </div>
+  );
+}
+
+function ArrowBack() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ArrowForward() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 
