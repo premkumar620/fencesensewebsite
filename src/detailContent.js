@@ -292,6 +292,9 @@ export const detailContent = {
     ],
   },
   "service:professional-services": {
+    ctaTitle: "Get in touch with our experts",
+    ctaText:
+      "Share your goals and timeline. We will respond with a practical scope, delivery model, and clear next step for your security or digital initiative.",
     benefitsTitle: "Key Benefits of Professional Services",
     benefits: [
       {
@@ -336,12 +339,12 @@ export const detailContent = {
       {
         step: "03",
         title: "Implementation & Integration",
-        text: "Our expert team implements solutions and integrates them into your existing systems with minimal disruption, ensuring smooth transitions.",
+        text: "Our expert team works seamlessly to implement solutions, integrating them into your existing systems with minimal disruption, ensuring smooth transitions.",
       },
       {
         step: "04",
         title: "Continuous Monitoring & Support",
-        text: "Post-implementation, we provide ongoing monitoring, support, and optimization to keep alignment with your security and business needs.",
+        text: "Post-implementation, we provide ongoing monitoring, support, and optimization to ensure continuous alignment with your security and business needs.",
       },
       {
         step: "05",
@@ -350,6 +353,22 @@ export const detailContent = {
       },
     ],
     faqs: [
+      faq(
+        "What is a red team exercise?",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      ),
+      faq(
+        "What is the difference between pen testing and red teaming?",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      ),
+      faq(
+        "How long does it take to conduct a red teaming operation?",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      ),
+      faq(
+        "Could a red team operation cause any damage or disruption?",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      ),
       faq(
         "What sets Fencesense apart from other cybersecurity service providers?",
         "Our approach combines deep expertise in cybersecurity with a tailored, proactive methodology, ensuring robust protection, regulatory compliance, and business continuity.",
@@ -477,36 +496,106 @@ export const detailContent = {
     ],
   },
   "service:bas-penetration-testing": {
-    benefitsTitle: "Key benefits of BAS & penetration testing",
+    ctaTitle: "Get in touch with our experts",
+    ctaText:
+      "Tell us about your environment and testing goals. We will propose scope, rules of engagement, and a delivery timeline that fits your risk and compliance needs.",
+    benefitsTitle: "Key Benefits of BAS & Penetration Testing",
     benefits: [
       {
-        title: "Realistic testing",
-        items: ["External penetration tests", "Internal penetration tests", "Attack simulation", "Control validation"],
+        title: "Proactive Threat Detection",
+        description:
+          "Identifies vulnerabilities before attackers exploit them, enabling organizations to strengthen defenses and reduce security risks effectively.",
       },
       {
-        title: "Actionable findings",
-        items: ["Exploit paths explained", "Severity based on use", "Remediation guidance", "Retest support"],
+        title: "Continuous Security Validation",
+        description:
+          "BAS provides ongoing assessment of defenses, ensuring that security controls are consistently effective against emerging threats and attack tactics.",
       },
       {
-        title: "Detection checks",
-        items: ["Validate alerting", "Purple-team scenarios", "Gap identification", "SOC tuning input"],
+        title: "Real-World Attack Scenarios",
+        description:
+          "Simulates actual attack methods to test system resilience, uncover weaknesses, and prepare for potential real-world breaches.",
       },
       {
-        title: "Leadership reporting",
-        items: ["Executive summary", "Technical detail", "Trend vs last test", "Risk acceptance support"],
+        title: "Enhanced Incident Response",
+        description:
+          "Provides insights to improve detection and response capabilities, reducing downtime and minimizing the impact of cyber incidents.",
+      },
+      {
+        title: "Regulatory Compliance",
+        description:
+          "Assists in meeting industry standards like GDPR, HIPAA, and PCI-DSS by identifying gaps in security controls.",
+      },
+      {
+        title: "Risk Prioritization",
+        description:
+          "Highlights the most critical vulnerabilities, enabling organizations to focus remediation efforts on areas that pose the highest risks.",
+      },
+      {
+        title: "Improved Security Awareness",
+        description:
+          "Educates teams on attack methods and strengthens organizational security culture through detailed reports and actionable recommendations.",
+      },
+      {
+        title: "Customizable Testing",
+        description:
+          "Tailored to your specific environment, ensuring targeted evaluations of systems, applications, and network infrastructure.",
+      },
+      {
+        title: "Third-Party Validation",
+        description:
+          "Provides an unbiased assessment of your security posture, building confidence with stakeholders and enhancing overall cybersecurity strategy.",
+      },
+      {
+        title: "Cost Savings",
+        description:
+          "Reduces long-term costs by preventing breaches and minimizing damage to reputation, operations, and compliance penalties.",
       },
     ],
-    methodologyTitle: "Our testing methodology",
+    methodologyTitle: "Our BAS & Penetration Testing Methodology",
     methodology: [
-      { step: "01", title: "Scope", text: "Rules of engagement, targets, and success criteria are agreed with stakeholders." },
-      { step: "02", title: "Test", text: "Manual and automated techniques simulate realistic attacker paths." },
-      { step: "03", title: "Report", text: "Findings are prioritized by exploitability and business impact." },
-      { step: "04", title: "Retest", text: "Critical fixes are validated so leadership sees closure, not just a list." },
+      {
+        step: "01",
+        title: "Planning & Scoping",
+        text: "We align on targets, rules of engagement, and success criteria with your stakeholders so testing matches business risk and compliance needs.",
+      },
+      {
+        step: "02",
+        title: "Vulnerability Assessment",
+        text: "Structured assessment identifies misconfigurations and weaknesses across applications, infrastructure, and cloud assets.",
+      },
+      {
+        step: "03",
+        title: "Penetration Testing & BAS",
+        text: "Manual and automated techniques simulate realistic attack paths while breach and attack simulation validates detective and preventive controls.",
+      },
+      {
+        step: "04",
+        title: "Reporting & Remediation",
+        text: "Findings are prioritized by exploitability and business impact, with clear remediation guidance and optional retest to confirm fixes.",
+      },
     ],
     faqs: [
-      faq("Will testing disrupt production?", "We schedule intrusive tests in agreed windows and use safe techniques where required."),
-      faq("How often should we test?", "Many regulated and high-risk organisations test annually or after major changes."),
-      faq("Do you offer retesting after fixes?", "Yes. Retests confirm that critical findings were remediated effectively."),
+      faq(
+        "What is the difference between penetration testing and breach and attack simulation?",
+        "Penetration testing focuses on finding and exploiting specific weaknesses in a point-in-time assessment. BAS continuously or periodically simulates attack techniques to validate that security controls detect and block threats as expected.",
+      ),
+      faq(
+        "Will testing disrupt production systems?",
+        "We agree rules of engagement and maintenance windows upfront. Intrusive tests use safe techniques where required, and high-risk actions are coordinated with your team.",
+      ),
+      faq(
+        "How often should we run BAS and penetration tests?",
+        "Many regulated and high-risk organizations test at least annually and after major changes. BAS can run more frequently to keep validation aligned with evolving threats.",
+      ),
+      faq(
+        "Do you provide retesting after remediation?",
+        "Yes. Retests confirm that critical findings were fixed effectively and give leadership evidence of closure.",
+      ),
+      faq(
+        "Can testing help with GDPR, HIPAA, or PCI-DSS expectations?",
+        "Structured VA/PT and BAS programs support control validation and gap identification that auditors and assessors commonly expect as part of a broader compliance program.",
+      ),
     ],
   },
   "service:threat-hunting": {
@@ -538,23 +627,31 @@ export const detailContent = {
     ],
   },
   "service:breach-detection": {
-    benefitsTitle: "Key benefits of breach detection",
+    benefitsTitle: "Key Benefits of Breach Detection",
     benefits: [
       {
-        title: "Coverage review",
-        items: ["Use-case inventory", "High-risk path focus", "Telemetry gaps", "Priority matrix"],
+        title: "Continuous Monitoring",
+        icon: "/solutions/security.png",
+        description:
+          "Real-time monitoring of network traffic, endpoints, and logs to detect unauthorized access and unusual activities.",
       },
       {
-        title: "Detection tuning",
-        items: ["Rule optimization", "False positive reduction", "Severity alignment", "Automation hooks"],
+        title: "Incident Investigation",
+        icon: "/solutions/network.png",
+        description:
+          "Detailed analysis to determine the root cause of breaches, assess the extent of impact, and identify compromised assets.",
       },
       {
-        title: "Investigation support",
-        items: ["First-hour guidance", "Evidence preservation", "Containment options", "Stakeholder updates"],
+        title: "Threat Intelligence Integration",
+        icon: "/solutions/application.png",
+        description:
+          "Utilizes global threat databases and AI-driven insights to recognize advanced persistent threats (APTs).",
       },
       {
-        title: "Early signal",
-        items: ["Lateral movement detection", "Identity abuse", "Exfiltration patterns", "Cloud anomaly detection"],
+        title: "Rapid Response",
+        icon: "/solutions/cloud.png",
+        description:
+          "Incident response capabilities to contain breaches quickly and minimize downtime.",
       },
     ],
     methodologyTitle: "Our breach detection methodology",

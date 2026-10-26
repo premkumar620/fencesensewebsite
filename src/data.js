@@ -8,6 +8,68 @@ export const addressLines = [
   "Chhawla, South West Delhi",
   "New Delhi, Delhi 110071",
 ];
+
+function officeMaps(lines) {
+  const query = `${lines.join(", ")}, India`;
+  return {
+    mapsQuery: query,
+    mapsHref: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`,
+    mapsEmbedSrc: `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=en&z=16&output=embed`,
+  };
+}
+
+/** Update `lines` for each entry with your three office addresses. */
+export const offices = [
+  {
+    id: "new-delhi",
+    label: "Registered office",
+    city: "New Delhi",
+    region: "Delhi NCR",
+    title: "Fencesense Technologies Pvt. Ltd.",
+    lines: addressLines,
+    phone,
+    cin,
+    primary: true,
+    ...officeMaps(addressLines),
+  },
+  {
+    id: "gurugram",
+    label: "Corporate office",
+    city: "Gurugram",
+    region: "Haryana",
+    title: "Fencesense Technologies Pvt. Ltd.",
+    lines: [
+      "Update: your Gurugram office street and building",
+      "Sector / locality",
+      "Gurugram, Haryana 122001",
+    ],
+    phone,
+    ...officeMaps([
+      "Update: your Gurugram office street and building",
+      "Sector / locality",
+      "Gurugram, Haryana 122001",
+    ]),
+  },
+  {
+    id: "bengaluru",
+    label: "Branch office",
+    city: "Bengaluru",
+    region: "Karnataka",
+    title: "Fencesense Technologies Pvt. Ltd.",
+    lines: [
+      "Update: your Bengaluru office street and building",
+      "Area / landmark",
+      "Bengaluru, Karnataka 560001",
+    ],
+    phone,
+    ...officeMaps([
+      "Update: your Bengaluru office street and building",
+      "Area / landmark",
+      "Bengaluru, Karnataka 560001",
+    ]),
+  },
+];
+
 export const addressText = addressLines.join(", ");
 export const mapsQuery = `${addressText}, India`;
 export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
@@ -52,7 +114,7 @@ export const services = [
     heroImage: "/services/banners/professional-services.png",
     kicker: "Consulting, implementation, and support",
     summary:
-      "Fencesense Professional Services offers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. Our team provides tailored consulting, implementation, and support to help businesses optimize digital infrastructure, enhance security, and streamline operations.",
+      "Fencesense Professional Services offers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. Our team provides tailored consulting, implementation, and support services to help businesses optimize their digital infrastructure, enhance security, and streamline operations. We are committed to delivering high-quality, scalable solutions that meet unique business needs.",
     paragraphs: [
       "Fencesense delivers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. The team provides tailored consulting, implementation, and support so businesses can tighten security and simplify day-to-day operations.",
       "Engagements cover CNAPP, CSPM, network security, EDR, and application security. We stay with you from the first design conversation through rollout and handover, so the work fits the tools and people you already have.",
@@ -124,7 +186,7 @@ export const services = [
     heroImage: "/services/banners/bas-penetration-testing.png",
     kicker: "Find the gaps before someone else does",
     summary:
-      "Breach and attack simulation plus penetration testing, so you can see which controls hold and which patches cannot wait.",
+      "Fencesense specializes in Vulnerability Assessment (VA), Penetration Testing (PT), and Breach and Attack Simulation (BAS) services. Our VA/PT solutions identify and remediate vulnerabilities, while BAS continuously simulates real-world threats, ensuring comprehensive security, proactive risk management, and strengthened defenses against evolving cyberattacks for your enterprise.",
     paragraphs: [
       "Fencesense tests the paths an attacker would actually use. Penetration testing and breach and attack simulation show where controls fail, which exposures are reachable, and what to fix first.",
       "Clients use the results to close critical gaps, confirm that detection works, and give leadership a clear picture of residual risk.",
@@ -160,7 +222,7 @@ export const services = [
     heroImage: "/services/banners/breach-detection.png",
     kicker: "See an intrusion while it is still small",
     summary:
-      "Detection content, telemetry review, and response support aimed at catching a breach early and limiting the blast radius.",
+      "Breach Detection Services by Fencesense Technologies focus on identifying, investigating, and mitigating cybersecurity breaches. These services are designed to help organizations proactively detect malicious activities, reduce response time, and prevent further damage.",
     paragraphs: [
       "Fencesense helps organisations notice attacker activity sooner. We review the signals you have, tighten detection for the paths that matter, and support the first hours of an investigation.",
       "The work sits alongside managed SOC services and incident response, so detection is connected to people who can act on it.",

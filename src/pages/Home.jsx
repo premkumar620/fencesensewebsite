@@ -3,17 +3,10 @@ import { Link } from "react-router-dom";
 import LogoMarquee from "../components/LogoMarquee";
 import SectionHeading from "../components/SectionHeading";
 import { useEnquiry } from "../context/EnquiryContext";
-import {
-  customerLogos,
-  offerings,
-  partnerLogos,
-  posts,
-  solutions,
-  stats,
-  testimonials,
-} from "../data";
+import StatsBand from "../components/StatsBand";
+import { useSite } from "../context/SiteContext";
 
-const focusAreas = [
+const DEFAULT_FOCUS_AREAS = [
   {
     title: "Cyber Security",
     text: "Monitoring, threat intelligence, and incident response aligned to your estate.",
@@ -33,8 +26,14 @@ const focusAreas = [
 ];
 
 export default function Home() {
+  const { customerLogos, offerings, pages, partnerLogos, posts, solutions } = useSite();
+  const home = pages.home ?? {};
+  const focusAreas = home.focusAreas?.length ? home.focusAreas : DEFAULT_FOCUS_AREAS;
   const { openEnquiry } = useEnquiry();
-  const [kicker, title] = useBannerTypewriter("Your Security, Our Passion", "Welcome to Fencesense");
+  const [kicker, title] = useBannerTypewriter(
+    home.heroLine1 ?? "Your Security, Our Passion",
+    home.heroLine2 ?? "Welcome to Fencesense",
+  );
 
   useEffect(() => {
     document.title = "Fencesense | Cybersecurity Solutions";
@@ -51,9 +50,8 @@ export default function Home() {
               <h1>{title}</h1>
             </div>
             <p>
-              Fencesense Technologies Pvt. Ltd. specializes in cybersecurity and digital solutions, offering network
-              delivery, automation, and transformation, along with threat intelligence, cloud security, SOC services,
-              and incident response for data protection.
+              {home.heroBody ??
+                "Fencesense Technologies Pvt. Ltd. specializes in cybersecurity and digital solutions, offering network delivery, automation, and transformation, along with threat intelligence, cloud security, SOC services, and incident response for data protection."}
             </p>
             <button type="button" className="hero-demo" onClick={openEnquiry}>
               <span>
@@ -70,13 +68,12 @@ export default function Home() {
       <section className="band about-band" id="about">
         <div className="container">
           <header className="about-intro">
-            <p className="about-eyebrow">About Fencesense</p>
+            <p className="about-eyebrow">{home.aboutEyebrow ?? "About Fencesense"}</p>
             <div className="about-intro-copy">
-              <h2>Leading the charge in cyber defence innovation.</h2>
+              <h2>{home.aboutTitle ?? "Leading the charge in cyber defence innovation."}</h2>
               <p>
-                Fencesense Technologies Pvt. Ltd. helps organisations secure networks, cloud platforms, and applications
-                with consulting, managed SOC, and specialist delivery. We stay after launch so controls keep working as
-                the business changes.
+                {home.aboutBody ??
+                  "Fencesense Technologies Pvt. Ltd. helps organisations secure networks, cloud platforms, and applications with consulting, managed SOC, and specialist delivery. We stay after launch so controls keep working as the business changes."}
               </p>
             </div>
           </header>
@@ -133,25 +130,32 @@ export default function Home() {
         </div>
       </section>
 
-      <Stats />
+      <StatsBand />
 
       <section className="band solutions-band">
         <div className="solutions-glow" aria-hidden="true" />
         <div className="container">
           <SectionHeading kicker="Your trusted IT security solution" title="Your Trusted IT Security Solution" />
-          <div className="card-grid">
+          <div className="card-grid services-card-grid">
             {solutions.map((item) => (
-              <article className="info-card" key={item.slug}>
-                <div className="card-title">
-                  <img className="card-icon" src={item.icon} alt="" />
-                  <h3>{item.title}</h3>
-                </div>
-                <div className="card-rule" aria-hidden="true" />
-                <p>{item.summary}</p>
-                <Link className="read-more" to={`/solutions/${item.slug}`}>
-                  Read more
-                  <CircleChevron />
+              <article className="info-card service-list-card" key={item.slug}>
+                <Link to={`/solutions/${item.slug}`} className="service-list-card-media">
+                  <img src={item.heroImage} alt="" />
                 </Link>
+                <div className="service-list-card-body">
+                  <p className="service-list-card-kicker">{item.kicker}</p>
+                  <div className="card-title service-list-card-title">
+                    <h3>
+                      <Link to={`/solutions/${item.slug}`}>{item.title}</Link>
+                    </h3>
+                  </div>
+                  <div className="card-rule" aria-hidden="true" />
+                  <p>{item.summary}</p>
+                  <Link className="read-more" to={`/solutions/${item.slug}`}>
+                    Read more
+                    <CircleChevron />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
@@ -160,12 +164,15 @@ export default function Home() {
 
       <section className="band testimonials-band">
         <div className="container">
-          <SectionHeading kicker="Testimonial" title="Trusted by Our Customers" />
+          <SectionHeading
+            kicker={home.testimonialsKicker ?? "Testimonial"}
+            title={home.testimonialsTitle ?? "Trusted by Our Customers"}
+          />
           <TestimonialSlider />
         </div>
       </section>
 
-      <LogoMarquee logos={customerLogos} label="Our Customers" />
+      <LogoMarquee logos={customerLogos} label={home.customersMarqueeLabel ?? "Our Customers"} />
 
       <section className="band">
         <div className="container">
@@ -200,89 +207,43 @@ export default function Home() {
   );
 }
 
-function Stats() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const node = document.getElementById("stats");
-    if (!node) return undefined;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
-      },
-      { threshold: 0.4 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section className="stats" id="stats">
-      <div className="container stats-row">
-        {stats.map((item) => (
-          <div key={item.label}>
-            <strong>
-              <CountUp value={item.value} run={visible} />
-              {item.suffix}
-            </strong>
-            <span>{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CountUp({ value, run }) {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (!run) return undefined;
-    const start = performance.now();
-    const duration = 1400;
-    let frame = 0;
-    const tick = (now) => {
-      const progress = Math.min(1, (now - start) / duration);
-      setCurrent(Math.round(value * (1 - (1 - progress) ** 3)));
-      if (progress < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [run, value]);
-
-  return current;
-}
-
 const TESTIMONIAL_INTERVAL_MS = 7000;
 
 function TestimonialSlider() {
+  const { testimonials = [] } = useSite();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const item = testimonials[index];
+  const count = testimonials.length;
+  const safeIndex = count ? ((index % count) + count) % count : 0;
 
   const go = (next) => {
-    const total = testimonials.length;
-    setIndex(((next % total) + total) % total);
+    if (!count) return;
+    setIndex(((next % count) + count) % count);
   };
 
   useEffect(() => {
-    if (paused) return undefined;
+    if (!count || paused) return undefined;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return undefined;
     const timer = window.setInterval(() => {
-      setIndex((value) => (value + 1) % testimonials.length);
+      setIndex((value) => (value + 1) % count);
     }, TESTIMONIAL_INTERVAL_MS);
     return () => window.clearInterval(timer);
-  }, [paused, index]);
+  }, [paused, count]);
 
   useEffect(() => {
+    if (!count) return undefined;
     const onKey = (event) => {
-      if (event.key === "ArrowLeft") go(index - 1);
-      if (event.key === "ArrowRight") go(index + 1);
+      if (event.key === "ArrowLeft") go(safeIndex - 1);
+      if (event.key === "ArrowRight") go(safeIndex + 1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [index]);
+  }, [safeIndex, count]);
+
+  if (!count) return null;
+
+  const item = testimonials[safeIndex];
 
   return (
     <div
@@ -298,16 +259,16 @@ function TestimonialSlider() {
         <div className="testimonial-stage-top">
           <p className="testimonial-label">Client note</p>
           <div className="testimonial-nav">
-            <button type="button" className="testimonial-arrow" aria-label="Previous testimonial" onClick={() => go(index - 1)}>
+            <button type="button" className="testimonial-arrow" aria-label="Previous testimonial" onClick={() => go(safeIndex - 1)}>
               <ArrowBack />
             </button>
-            <button type="button" className="testimonial-arrow" aria-label="Next testimonial" onClick={() => go(index + 1)}>
+            <button type="button" className="testimonial-arrow" aria-label="Next testimonial" onClick={() => go(safeIndex + 1)}>
               <ArrowForward />
             </button>
           </div>
         </div>
 
-        <blockquote key={index} className="testimonial-card" aria-live="polite">
+        <blockquote key={safeIndex} className="testimonial-card" aria-live="polite">
           <img className="testimonial-quote-icon" src="/icon-quote.svg" alt="" />
           <p>{item.quote}</p>
           <footer>
@@ -321,12 +282,12 @@ function TestimonialSlider() {
 
         <div className="testimonial-progress" aria-hidden="true">
           <span
-            key={`${index}-${paused ? "paused" : "run"}`}
+            key={`${safeIndex}-${paused ? "paused" : "run"}`}
             className={`testimonial-progress-bar ${paused ? "is-paused" : ""}`}
           />
         </div>
         <p className="testimonial-counter">
-          <span>{String(index + 1).padStart(2, "0")}</span> / {String(testimonials.length).padStart(2, "0")}
+          <span>{String(safeIndex + 1).padStart(2, "0")}</span> / {String(count).padStart(2, "0")}
         </p>
       </div>
 
@@ -336,8 +297,8 @@ function TestimonialSlider() {
             key={entry.name + entry.role}
             type="button"
             role="tab"
-            aria-selected={entryIndex === index}
-            className={entryIndex === index ? "is-active" : ""}
+            aria-selected={entryIndex === safeIndex}
+            className={entryIndex === safeIndex ? "is-active" : ""}
             onClick={() => go(entryIndex)}
           >
             <img src={entry.logo} alt="" />

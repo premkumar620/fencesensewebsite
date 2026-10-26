@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { addressLines, cin, email, mapsHref, phone, phoneHref, services, socials, solutions } from "../data";
+import { useSite } from "../context/SiteContext";
 
 export default function Footer() {
+  const { addressLines, cin, email, mapsHref, phone, phoneHref, services, socials, solutions } = useSite();
+
   return (
     <footer className="site-footer">
       <div className="container">

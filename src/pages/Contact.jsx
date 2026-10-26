@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { addressLines, cin, email, mapsEmbedSrc, mapsHref, phone, phoneHref, socials } from "../data";
 import { useEnquiry } from "../context/EnquiryContext";
+import { useSite } from "../context/SiteContext";
+import { mailtoEnquiry, sendEnquiry } from "../utils/enquirySubmit";
 
 const reachOutPoints = [
   "Security, cloud, and network specialists on every enquiry",
@@ -9,52 +10,62 @@ const reachOutPoints = [
 ];
 
 export default function Contact() {
+  const { cin, email, offices, phone, phoneHref, socials } = useSite();
   const { openEnquiry } = useEnquiry();
   const [sent, setSent] = useState(false);
+  const [submitVia, setSubmitVia] = useState("api");
+  const defaultOffice = offices.find((entry) => entry.primary) ?? offices[0];
+  const [activeOfficeId, setActiveOfficeId] = useState(defaultOffice.id);
+  const activeOffice = offices.find((entry) => entry.id === activeOfficeId) ?? defaultOffice;
 
   useEffect(() => {
     document.title = "Contact us | Fencesense";
   }, []);
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") || "").trim();
     const mail = String(data.get("email") || "").trim();
     const mobile = String(data.get("phone") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const body = `Name: ${name}\nEmail: ${mail}\nPhone: ${mobile}\n\n${message}`;
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(`Website enquiry from ${name}`)}&body=${encodeURIComponent(body)}`;
+    const payload = { name, email: mail, phone: mobile, message, preferredOffice: activeOfficeId };
+    const result = await sendEnquiry(payload);
+    if (result.ok) {
+      setSubmitVia("api");
+      setSent(true);
+      event.currentTarget.reset();
+      return;
+    }
+    mailtoEnquiry(email, payload);
+    setSubmitVia("mailto");
     setSent(true);
   }
 
   return (
     <div className="page contact-page">
-      <section className="contact-hero">
-        <div
-          className="contact-hero-bg"
-          aria-hidden="true"
-          style={{ "--detail-hero-image": 'url("/about/about-banner.jpeg")' }}
-        />
-        <div className="container contact-hero-inner">
-          <div className="contact-hero-copy">
-            <p className="kicker">Contact us</p>
-            <span className="accent-line" aria-hidden="true" />
-            <h1>Get in touch with our experts</h1>
+      <section className="hero contact-hero-home">
+        <div className="hero-media" aria-hidden="true" style={{ "--hero-media-image": 'url("/about/about-banner.jpeg")' }} />
+        <div className="container hero-layout">
+          <div className="hero-copy contact-hero-copy-block">
+            <div className="hero-heading contact-hero-heading-compact">
+              <p className="hero-kicker hero-kicker--static">Contact us</p>
+              <h1>Get in touch with our experts</h1>
+            </div>
             <p>
               Enquiries, support, or a consultation — tell us about your environment and goals. We help organizations
-              strengthen cybersecurity, cloud, network, and digital operations.
+              strengthen cybersecurity, cloud, network, and digital operations across India.
             </p>
-            <div className="detail-hero-actions contact-hero-actions">
-              <a className="btn" href="#contact-form">
-                Send a message
+            <div className="hero-actions-row">
+              <a className="hero-demo" href="#contact-form">
+                <span>
+                  Send a message
+                  <ArrowIcon />
+                </span>
               </a>
-              <button type="button" className="btn detail-btn-outline" onClick={openEnquiry}>
-                Quick enquiry
+              <button type="button" className="hero-demo hero-demo-secondary" onClick={openEnquiry}>
+                <span>Quick enquiry</span>
               </button>
-              <a className="text-link" href={phoneHref}>
-                Call {phone}
-              </a>
             </div>
           </div>
         </div>
@@ -78,18 +89,112 @@ export default function Contact() {
             <strong>{email}</strong>
             <span className="contact-channel-hint">We reply within one business day</span>
           </a>
-          <a className="contact-channel-card" href={mapsHref} target="_blank" rel="noreferrer">
+          <a className="contact-channel-card" href="#our-offices">
             <span className="contact-channel-icon" aria-hidden="true">
               <PinIcon />
             </span>
-            <span className="contact-channel-label">Visit us</span>
-            <strong>New Delhi, 110071</strong>
-            <span className="contact-channel-hint">Open directions in Google Maps</span>
+            <span className="contact-channel-label">Our offices</span>
+            <strong>{offices.length} locations in India</strong>
+            <span className="contact-channel-hint">View addresses and maps below</span>
           </a>
         </div>
       </section>
 
-      <section className="band contact-main">
+      <section className="contact-offices-section" id="our-offices" aria-labelledby="contact-offices-heading">
+        <div className="container">
+          <header className="contact-offices-head">
+            <p className="kicker">Locations</p>
+            <span className="accent-line" aria-hidden="true" />
+            <h2 id="contact-offices-heading">Visit our offices</h2>
+            <p className="lede">Select a location for the full address and map. Directions open in Google Maps.</p>
+          </header>
+
+          <div className="contact-offices-grid" role="tablist" aria-label="Office locations">
+            {offices.map((office) => {
+              const active = office.id === activeOfficeId;
+              return (
+                <button
+                  key={office.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  className={`contact-office-card${active ? " is-active" : ""}`}
+                  onClick={() => setActiveOfficeId(office.id)}
+                >
+                  <span className="contact-office-card-top">
+                    <span className="contact-office-icon" aria-hidden="true">
+                      <PinIcon />
+                    </span>
+                    <span className="contact-office-meta">
+                      <span className="contact-office-label">{office.label}</span>
+                      <strong className="contact-office-city">{office.city}</strong>
+                      <span className="contact-office-region">{office.region}</span>
+                    </span>
+                  </span>
+                  <address className="contact-office-address">
+                    {office.lines.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </address>
+                  {office.cin ? (
+                    <p className="contact-office-cin">
+                      <span>CIN</span>
+                      <strong>{office.cin}</strong>
+                    </p>
+                  ) : null}
+                  {office.primary ? <span className="contact-office-badge">Primary</span> : null}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="contact-map-shell contact-map-shell--premium" role="tabpanel" aria-live="polite">
+            <aside className="contact-map-card">
+              <p className="contact-map-card-kicker">{activeOffice.label}</p>
+              <h3>{activeOffice.title}</h3>
+              <p className="contact-map-city">
+                {activeOffice.city}, {activeOffice.region}
+              </p>
+              <address className="contact-map-address">
+                {activeOffice.lines.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </address>
+              {activeOffice.cin ? (
+                <p className="contact-map-cin">
+                  <span>CIN</span>
+                  <strong>{activeOffice.cin}</strong>
+                </p>
+              ) : null}
+              <ul className="contact-map-actions">
+                <li>
+                  <a className="btn" href={activeOffice.mapsHref} target="_blank" rel="noreferrer">
+                    Open in Google Maps
+                  </a>
+                </li>
+                <li>
+                  <a className="text-link" href={phoneHref}>
+                    Call {activeOffice.phone || phone}
+                  </a>
+                </li>
+              </ul>
+            </aside>
+
+            <div className="contact-map-frame">
+              <iframe
+                key={activeOffice.id}
+                title={`${activeOffice.city} office location on Google Maps`}
+                src={activeOffice.mapsEmbedSrc}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-main">
         <div className="container contact-main-shell">
           <form className="contact-form-panel" id="contact-form" onSubmit={onSubmit}>
             <header className="contact-form-head">
@@ -103,8 +208,9 @@ export default function Contact() {
 
             {sent ? (
               <p className="form-success" role="status">
-                Your email app should open with this enquiry addressed to {email}. If nothing opens, send the note
-                directly.
+                {submitVia === "api"
+                  ? "Thank you — we received your message and will respond shortly."
+                  : `Your email app should open with this enquiry addressed to ${email}. If nothing opens, send the note directly.`}
               </p>
             ) : null}
 
@@ -151,18 +257,19 @@ export default function Contact() {
             </div>
 
             <div className="contact-aside-card">
-              <p className="contact-aside-kicker">Registered office</p>
-              <address className="contact-aside-address">
-                {addressLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </address>
+              <p className="contact-aside-kicker">Company details</p>
               <p className="contact-aside-meta">
                 <span>CIN</span>
                 <strong>{cin}</strong>
               </p>
-              <a className="text-link" href={mapsHref} target="_blank" rel="noreferrer">
-                Get directions
+              <p className="contact-aside-meta">
+                <span>Email</span>
+                <strong>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </strong>
+              </p>
+              <a className="text-link" href="#our-offices">
+                View all office locations
               </a>
             </div>
 
@@ -179,54 +286,6 @@ export default function Contact() {
               </ul>
             </div>
           </aside>
-        </div>
-      </section>
-
-      <section className="band contact-map-section" aria-labelledby="contact-map-heading">
-        <div className="container">
-          <header className="contact-map-head">
-            <p className="kicker">Location</p>
-            <span className="accent-line" aria-hidden="true" />
-            <h2 id="contact-map-heading">Find us on the map</h2>
-            <p className="lede">
-              Our registered office is in South West Delhi. Use the map for directions or open the full view in Google
-              Maps.
-            </p>
-          </header>
-
-          <div className="contact-map-shell">
-            <aside className="contact-map-card">
-              <p className="contact-map-card-kicker">Registered office</p>
-              <h3>Fencesense Technologies Pvt. Ltd.</h3>
-              <address className="contact-map-address">
-                {addressLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </address>
-              <ul className="contact-map-actions">
-                <li>
-                  <a className="btn" href={mapsHref} target="_blank" rel="noreferrer">
-                    Open in Google Maps
-                  </a>
-                </li>
-                <li>
-                  <a className="text-link" href={phoneHref}>
-                    Call {phone}
-                  </a>
-                </li>
-              </ul>
-            </aside>
-
-            <div className="contact-map-frame">
-              <iframe
-                title="Fencesense Technologies office location on Google Maps"
-                src={mapsEmbedSrc}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
-          </div>
         </div>
       </section>
     </div>

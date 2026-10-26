@@ -1,0 +1,1565 @@
+{
+  "services": [
+    {
+      "slug": "professional-services",
+      "title": "Professional Services",
+      "heroImage": "/services/banners/professional-services.png",
+      "kicker": "Consulting, implementation, and support",
+      "summary": "Fencesense Professional Services offers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. Our team provides tailored consulting, implementation, and support services to help businesses optimize their digital infrastructure, enhance security, and streamline operations. We are committed to delivering high-quality, scalable solutions that meet unique business needs.",
+      "paragraphs": [
+        "Fencesense delivers expert solutions in cybersecurity, network management, application delivery, cloud security, and DevOps. The team provides tailored consulting, implementation, and support so businesses can tighten security and simplify day-to-day operations.",
+        "Engagements cover CNAPP, CSPM, network security, EDR, and application security. We stay with you from the first design conversation through rollout and handover, so the work fits the tools and people you already have."
+      ],
+      "points": [
+        "Security architecture and control design",
+        "Implementation across cloud, network, and endpoint",
+        "Operating guidance for internal teams",
+        "Practical recommendations your staff can maintain"
+      ]
+    },
+    {
+      "slug": "managed-security-services",
+      "title": "Managed Security Services",
+      "heroImage": "/services/banners/managed-security-services.png",
+      "kicker": "SOC, monitoring, and response",
+      "summary": "A managed security function that watches the environment, investigates alerts, and helps you respond before an incident spreads.",
+      "paragraphs": [
+        "Fencesense managed security services give organisations a working SOC without having to build one from scratch. We monitor critical systems, triage alerts, and bring threat intelligence into the decisions your team makes each day.",
+        "Coverage includes proactive cybersecurity, managed SOC operations, and threat intelligence for IPs, domains, and URLs. The goal is steady visibility and a clear path from detection to containment."
+      ],
+      "points": [
+        "Continuous monitoring and alert triage",
+        "Threat intelligence for IPs, domains, and URLs",
+        "Incident coordination with your internal owners",
+        "Regular reporting on what was seen and what changed"
+      ]
+    },
+    {
+      "slug": "on-demand-professional-expertise",
+      "title": "On-Demand Professional Expertise",
+      "heroImage": "/services/banners/on-demand-professional-expertise.png",
+      "kicker": "Specialists when the workload spikes",
+      "summary": "Senior security, cloud, and network specialists you can bring in for a project, a gap, or a stretch of extra demand.",
+      "paragraphs": [
+        "Some work does not need a full-time hire. Fencesense places experienced consultants alongside your team for assessments, implementations, migrations, and surge support.",
+        "You get people who have already delivered cybersecurity, network, application delivery, and cloud work, and who can join an engagement without a long ramp-up."
+      ],
+      "points": [
+        "Short and long engagements",
+        "Architecture, engineering, and analyst profiles",
+        "Support during audits, rollouts, and incidents",
+        "Knowledge transfer before we step back"
+      ]
+    },
+    {
+      "slug": "cloud-services",
+      "title": "Cloud Services",
+      "heroImage": "/services/banners/cloud-services.png",
+      "kicker": "Design, protect, and run the cloud",
+      "summary": "Cloud architecture, security, and operations for teams that need the environment to stay reliable as it grows.",
+      "paragraphs": [
+        "Fencesense helps businesses design cloud platforms that are easier to secure and easier to operate. We work across architecture, data protection, and day-to-day cloud management.",
+        "That includes landing zones, workload protection, and the guardrails that keep new projects from drifting outside the standards you set."
+      ],
+      "points": [
+        "Cloud architecture and landing zones",
+        "Workload and platform protection",
+        "Identity, network, and data controls",
+        "Operational handover for internal teams"
+      ]
+    },
+    {
+      "slug": "bas-penetration-testing",
+      "title": "BAS & Penetration Testing",
+      "heroImage": "/services/banners/bas-penetration-testing.png",
+      "kicker": "Find the gaps before someone else does",
+      "summary": "Fencesense specializes in Vulnerability Assessment (VA), Penetration Testing (PT), and Breach and Attack Simulation (BAS) services. Our VA/PT solutions identify and remediate vulnerabilities, while BAS continuously simulates real-world threats, ensuring comprehensive security, proactive risk management, and strengthened defenses against evolving cyberattacks for your enterprise.",
+      "paragraphs": [
+        "Fencesense tests the paths an attacker would actually use. Penetration testing and breach and attack simulation show where controls fail, which exposures are reachable, and what to fix first.",
+        "Clients use the results to close critical gaps, confirm that detection works, and give leadership a clear picture of residual risk."
+      ],
+      "points": [
+        "External and internal penetration testing",
+        "Breach and attack simulation against live controls",
+        "Findings ranked by how they can be used",
+        "Retest support after remediation"
+      ]
+    },
+    {
+      "slug": "threat-hunting",
+      "title": "Threat Hunting",
+      "heroImage": "/services/banners/threat-hunting.png",
+      "kicker": "Look for what alerts miss",
+      "summary": "Hypothesis-led hunts across endpoints, identity, and cloud so quiet intrusions do not sit unnoticed.",
+      "paragraphs": [
+        "Alerts only show what a rule already knows. Threat hunting at Fencesense starts from current adversary behaviour and looks for traces in the telemetry you already collect.",
+        "Each hunt ends with what we found, what was benign, and which detections or gaps should change so the same pattern is caught next time."
+      ],
+      "points": [
+        "Hunts across endpoint, identity, and cloud telemetry",
+        "Findings tied to specific techniques",
+        "Detection improvements your SOC can keep",
+        "Briefings written for both analysts and leadership"
+      ]
+    },
+    {
+      "slug": "breach-detection",
+      "title": "Breach Detection",
+      "heroImage": "/services/banners/breach-detection.png",
+      "kicker": "See an intrusion while it is still small",
+      "summary": "Breach Detection Services by Fencesense Technologies focus on identifying, investigating, and mitigating cybersecurity breaches. These services are designed to help organizations proactively detect malicious activities, reduce response time, and prevent further damage.",
+      "paragraphs": [
+        "Fencesense helps organisations notice attacker activity sooner. We review the signals you have, tighten detection for the paths that matter, and support the first hours of an investigation.",
+        "The work sits alongside managed SOC services and incident response, so detection is connected to people who can act on it."
+      ],
+      "points": [
+        "Detection coverage review",
+        "Use-case tuning for high-risk paths",
+        "Investigation support when something fires",
+        "Clear next steps for containment"
+      ]
+    }
+  ],
+  "solutions": [
+    {
+      "slug": "security-solution",
+      "title": "Security Solution",
+      "icon": "/solutions/security.png",
+      "heroImage": "/solutions/banners/security-solution.jpg",
+      "kicker": "Protection that keeps up with the threat",
+      "summary": "At Fencesense Technologies Pvt. Ltd., we deliver comprehensive security solutions to safeguard businesses against evolving cyber threats. Our offerings include proactive cybersecurity, managed SOC services, and advanced threat intelligence for IPs, domains, and URLs.",
+      "paragraphs": [
+        "At Fencesense Technologies Pvt. Ltd., we deliver security solutions that help businesses stand up to changing cyber threats. Offerings include proactive cybersecurity, managed SOC services, and threat intelligence for IPs, domains, and URLs.",
+        "We work across cloud security, network security, and application protection so operations stay available while risk is reduced. Whether the estate is on-premises, cloud, or hybrid, the design is matched to the way the business runs."
+      ],
+      "points": [
+        "Managed SOC and ongoing monitoring",
+        "Threat intelligence for IPs, domains, and URLs",
+        "Cloud, network, and application protection",
+        "Designs for on-premises and hybrid environments"
+      ]
+    },
+    {
+      "slug": "network-solution",
+      "title": "Network Solution",
+      "icon": "/solutions/network.png",
+      "heroImage": "/solutions/banners/network-solution.jpg",
+      "kicker": "Networks that stay fast and contained",
+      "summary": "Fencesense designs and manages enterprise networks so connectivity stays reliable, traffic is easier to defend, and an incident cannot spread unchecked across the estate.",
+      "paragraphs": [
+        "Fencesense designs and hardens enterprise networks for organisations that cannot afford brittle connectivity or flat trust. We look at architecture, segmentation, secure remote access, and the operational habits that keep the network understandable.",
+        "The result is a network that performs under normal load and limits how far an incident can travel when something goes wrong."
+      ],
+      "points": [
+        "Architecture and segmentation",
+        "Secure access for users and sites",
+        "Visibility into critical paths",
+        "Changes planned around uptime"
+      ]
+    },
+    {
+      "slug": "application-delivery-solution",
+      "title": "Application Delivery Solution",
+      "icon": "/solutions/application.png",
+      "heroImage": "/solutions/banners/application-delivery-solution.jpg",
+      "kicker": "Applications that stay available",
+      "summary": "At Fencesense Technologies Pvt. Ltd., we provide tailored application delivery solutions that keep applications secure, fast, and always available. Our work covers performance, seamless deployments, and the controls that protect traffic on the way in.",
+      "paragraphs": [
+        "At Fencesense Technologies Pvt. Ltd., we provide application delivery solutions so applications stay secure, fast, and available. The work covers performance, smoother deployments, and the controls that protect traffic on the way to the application.",
+        "We align load handling, release practices, and security checks so a new version does not become an outage or an open door."
+      ],
+      "points": [
+        "Performance and availability design",
+        "Safer, repeatable deployments",
+        "Protection in front of critical apps",
+        "Delivery paths that operations can support"
+      ]
+    },
+    {
+      "slug": "identity-access-management-iam",
+      "title": "Identity & Access Management (IAM)",
+      "icon": "/solutions/iam.png",
+      "heroImage": "/solutions/banners/identity-access-management-iam.jpeg",
+      "kicker": "The right access, and nothing extra",
+      "summary": "We help organisations put authentication, identity governance, and privileged access on a footing they can audit, so people and services get only the access they need.",
+      "paragraphs": [
+        "Identity is where most modern attacks begin. Fencesense helps organisations put authentication, lifecycle, and privileged access on a footing they can audit and operate.",
+        "We cover workforce and admin access, joining cloud and on-premises directories, and the reviews that keep old accounts from lingering."
+      ],
+      "points": [
+        "Single sign-on and strong authentication",
+        "Joiner, mover, and leaver processes",
+        "Privileged access control",
+        "Access reviews leadership can follow"
+      ]
+    },
+    {
+      "slug": "cloud-solution",
+      "title": "Cloud Solution",
+      "icon": "/solutions/cloud.png",
+      "heroImage": "/solutions/banners/cloud-solution.png",
+      "kicker": "Secure platforms that can scale",
+      "summary": "Fencesense Technologies Pvt. Ltd. offers advanced cloud solutions to help businesses optimize, secure, and scale digital operations. We design robust architectures, protect data, and manage cloud environments as they grow.",
+      "paragraphs": [
+        "Fencesense Technologies Pvt. Ltd. offers cloud solutions that help businesses run digital operations with more control. We design architectures, protect data, and help teams manage cloud environments as they grow.",
+        "Security is part of the design, not a layer added after the migration. Guardrails, identity, and workload protection are planned with the platform itself."
+      ],
+      "points": [
+        "Robust cloud architecture",
+        "Data protection and residency choices",
+        "Environment management and guardrails",
+        "A path from pilot to steady operations"
+      ]
+    },
+    {
+      "slug": "digital-solutions",
+      "title": "Digital Solutions",
+      "icon": "/solutions/digital.png",
+      "heroImage": "/solutions/banners/digital-solutions.png",
+      "kicker": "Experiences, commerce, and automation",
+      "summary": "Our digital solutions cover web and mobile UI/UX design, eCommerce development, application consulting, network delivery, and automation, built to improve digital experience and support the way the business actually runs.",
+      "paragraphs": [
+        "Our digital solutions cover web and mobile UI/UX design, eCommerce development, application consulting, network delivery, and automation. The aim is work that people can use and that the business can grow.",
+        "We connect the experience on the screen with the delivery and security underneath it, so a new product does not outrun the platform it sits on."
+      ],
+      "points": [
+        "Web and mobile UI/UX",
+        "eCommerce development",
+        "Application consulting",
+        "Network delivery and automation"
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "value": 10,
+      "suffix": "k",
+      "label": "Satisfied Clients"
+    },
+    {
+      "value": 20,
+      "suffix": "+",
+      "label": "Security Consultants"
+    },
+    {
+      "value": 5,
+      "suffix": "+",
+      "label": "Active Engagements"
+    },
+    {
+      "value": 2,
+      "suffix": "+",
+      "label": "Years of Experience"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Fencesense Technologies consistently delivers exceptional solutions, enhancing our cybersecurity, network performance, and cloud security. Their expertise and support are invaluable.",
+      "name": "CIO",
+      "role": "CIO - NBFC",
+      "logo": "/testimonials/ever-energy.svg"
+    },
+    {
+      "quote": "We are thoroughly impressed with Fencesense's proactive approach to security. Their team has consistently provided us with reliable solutions and exceptional support.",
+      "name": "Amit Garg",
+      "role": "System Administrator - Xander Finance Pvt Ltd",
+      "logo": "/testimonials/plux.svg"
+    },
+    {
+      "quote": "Fencesense has been a game-changer for our company's security. Their expert advice and seamless service have made us feel confident in our digital protection.",
+      "name": "North East",
+      "role": "System Administrator - Xander Finance Pvt Ltd",
+      "logo": "/testimonials/north-east.webp"
+    },
+    {
+      "quote": "Fencesense did a great job in assessing the vulnerabilities and conducting penetration tests. It helped us in addressing critical patches that could have caused security flaws. The Fencesense team is professional, efficient and easy to work with.",
+      "name": "Hiren Desai",
+      "role": "Assistant Vice President - SBI SG Global Securities Services Pvt Ltd",
+      "logo": "/testimonials/sbisg.png"
+    }
+  ],
+  "posts": [
+    {
+      "slug": "cloud-workload-protection",
+      "title": "Cloud Workload Protection (CWP)",
+      "date": "19 November, 2024",
+      "day": "19",
+      "month": "NOV",
+      "author": "Admin",
+      "image": "/blogs/cwp.png",
+      "excerpt": "Cloud Workload Protection is how organisations safeguard applications, virtual machines, containers, and serverless functions running in the cloud.",
+      "paragraphs": [
+        "Cloud Workload Protection (CWP) is a security approach designed to safeguard cloud-hosted workloads, such as applications, virtual machines, containers, and serverless functions, from potential cyber threats.",
+        "As organisations adopt cloud environments, CWP becomes part of keeping visibility, control, and protection over infrastructure that moves and scales. Without it, new workloads appear faster than the team can review them.",
+        "Fencesense helps teams put workload protection next to architecture and operations, so coverage follows the estate instead of lagging a quarter behind it."
+      ]
+    },
+    {
+      "slug": "crowdstrike-cnapp",
+      "title": "CrowdStrike CNAPP",
+      "date": "19 November, 2024",
+      "day": "19",
+      "month": "NOV",
+      "author": "Admin",
+      "image": "/blogs/cnapp.png",
+      "excerpt": "CrowdStrike's Cloud-Native Application Protection Platform brings workload protection, visibility, and compliance into one view of cloud-native applications.",
+      "paragraphs": [
+        "CrowdStrike's Cloud-Native Application Protection Platform (CNAPP) is a security platform for cloud-native applications across their lifecycle. It brings several security functions into one place so teams are not stitching together a separate tool for every question.",
+        "A unified platform pulls workload protection, vulnerability management, and compliance monitoring together. That reduces the overhead of running many consoles that do not share context.",
+        "Visibility extends across cloud workloads, containers, and serverless functions, which is what teams need when they are trying to see which exposures are real. Detection and response can then use threat intelligence and machine learning to surface activity closer to the moment it happens.",
+        "CNAPP also supports regulatory work by watching the environment continuously and pointing out where compliance is drifting. For organisations standardising on CrowdStrike, it is a practical way to tighten cloud security without adding another disconnected programme."
+      ]
+    },
+    {
+      "slug": "vmware-vcenter-server-flaw",
+      "title": "VMware Discloses Exploitation of Hard-to-Fix vCenter Server Flaw",
+      "date": "12 November, 2024",
+      "day": "12",
+      "month": "NOV",
+      "author": "Admin",
+      "image": "/blogs/vmware.png",
+      "excerpt": "VMware confirmed that a difficult-to-fix vCenter Server vulnerability, first shown at a hacking contest, is being used in live attacks.",
+      "paragraphs": [
+        "A difficult-to-fix vulnerability, first revealed at a Chinese hacking contest five months earlier, is being exploited in the wild, VMware confirmed. The company updated its VMSA-2024-0019 bulletin to acknowledge the live attacks and asked customers to prioritise the available fixes.",
+        "For teams running vCenter, the practical step is to identify exposed servers, apply the vendor fix, and watch for signs of misuse while the change rolls out. Fencesense tracks advisories like this so clients can patch what is being used, not only what is newly published."
+      ]
+    }
+  ],
+  "offerings": [
+    "Cybersecurity Solutions",
+    "Network Management & Solutions",
+    "Application Delivery Solutions",
+    "DevOps Services",
+    "Cloud Infrastructure Management",
+    "Cloud Security",
+    "Digital Solutions"
+  ],
+  "socials": [
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/"
+    },
+    {
+      "label": "X",
+      "href": "https://x.com/"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/fencesense_technologies/"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://in.linkedin.com/company/fencesense-technologies"
+    },
+    {
+      "label": "YouTube",
+      "href": "https://www.youtube.com/@fencesense"
+    }
+  ],
+  "partnerLogos": [
+    "/partners/01.png",
+    "/partners/02.png",
+    "/partners/03.png",
+    "/partners/04.png",
+    "/partners/05.png",
+    "/partners/06.png",
+    "/partners/07.png",
+    "/partners/08.png",
+    "/partners/09.png",
+    "/partners/10.png",
+    "/partners/11.png",
+    "/partners/12.png",
+    "/partners/13.png",
+    "/partners/14.png",
+    "/partners/15.png",
+    "/partners/16.png",
+    "/partners/17.png"
+  ],
+  "customerLogos": [
+    "/customers/01.png",
+    "/customers/02.png",
+    "/customers/03.png"
+  ],
+  "offices": [
+    {
+      "id": "new-delhi",
+      "label": "Registered office",
+      "city": "New Delhi",
+      "region": "Delhi NCR",
+      "title": "Fencesense Technologies Pvt. Ltd.",
+      "lines": [
+        "Plot No. 44-A/2, KH-46B",
+        "Somesh Vihar, Chhawla Extension",
+        "Chhawla, South West Delhi",
+        "New Delhi, Delhi 110071"
+      ],
+      "phone": "9650731119",
+      "cin": "U62099DL2023PTC419464",
+      "primary": true,
+      "mapsQuery": "Plot No. 44-A/2, KH-46B, Somesh Vihar, Chhawla Extension, Chhawla, South West Delhi, New Delhi, Delhi 110071, India",
+      "mapsHref": "https://www.google.com/maps/search/?api=1&query=Plot%20No.%2044-A%2F2%2C%20KH-46B%2C%20Somesh%20Vihar%2C%20Chhawla%20Extension%2C%20Chhawla%2C%20South%20West%20Delhi%2C%20New%20Delhi%2C%20Delhi%20110071%2C%20India",
+      "mapsEmbedSrc": "https://www.google.com/maps?q=Plot%20No.%2044-A%2F2%2C%20KH-46B%2C%20Somesh%20Vihar%2C%20Chhawla%20Extension%2C%20Chhawla%2C%20South%20West%20Delhi%2C%20New%20Delhi%2C%20Delhi%20110071%2C%20India&hl=en&z=16&output=embed"
+    },
+    {
+      "id": "gurugram",
+      "label": "Corporate office",
+      "city": "Gurugram",
+      "region": "Haryana",
+      "title": "Fencesense Technologies Pvt. Ltd.",
+      "lines": [
+        "Update: your Gurugram office street and building",
+        "Sector / locality",
+        "Gurugram, Haryana 122001"
+      ],
+      "phone": "9650731119",
+      "mapsQuery": "Update: your Gurugram office street and building, Sector / locality, Gurugram, Haryana 122001, India",
+      "mapsHref": "https://www.google.com/maps/search/?api=1&query=Update%3A%20your%20Gurugram%20office%20street%20and%20building%2C%20Sector%20%2F%20locality%2C%20Gurugram%2C%20Haryana%20122001%2C%20India",
+      "mapsEmbedSrc": "https://www.google.com/maps?q=Update%3A%20your%20Gurugram%20office%20street%20and%20building%2C%20Sector%20%2F%20locality%2C%20Gurugram%2C%20Haryana%20122001%2C%20India&hl=en&z=16&output=embed"
+    },
+    {
+      "id": "bengaluru",
+      "label": "Branch office",
+      "city": "Bengaluru",
+      "region": "Karnataka",
+      "title": "Fencesense Technologies Pvt. Ltd.",
+      "lines": [
+        "Update: your Bengaluru office street and building",
+        "Area / landmark",
+        "Bengaluru, Karnataka 560001"
+      ],
+      "phone": "9650731119",
+      "mapsQuery": "Update: your Bengaluru office street and building, Area / landmark, Bengaluru, Karnataka 560001, India",
+      "mapsHref": "https://www.google.com/maps/search/?api=1&query=Update%3A%20your%20Bengaluru%20office%20street%20and%20building%2C%20Area%20%2F%20landmark%2C%20Bengaluru%2C%20Karnataka%20560001%2C%20India",
+      "mapsEmbedSrc": "https://www.google.com/maps?q=Update%3A%20your%20Bengaluru%20office%20street%20and%20building%2C%20Area%20%2F%20landmark%2C%20Bengaluru%2C%20Karnataka%20560001%2C%20India&hl=en&z=16&output=embed"
+    }
+  ],
+  "phone": "9650731119",
+  "email": "info@fencesense.com",
+  "cin": "U62099DL2023PTC419464",
+  "detailContent": {
+    "solution:security-solution": {
+      "benefitsTitle": "Key benefits of security solutions",
+      "benefits": [
+        {
+          "title": "Managed detection & response",
+          "items": [
+            "24/7 monitoring",
+            "Alert triage and escalation",
+            "Incident coordination",
+            "Executive reporting"
+          ]
+        },
+        {
+          "title": "Threat intelligence",
+          "items": [
+            "IP, domain, and URL intelligence",
+            "Context for analyst decisions",
+            "Feed tuning for your stack",
+            "Briefings for leadership"
+          ]
+        },
+        {
+          "title": "Platform protection",
+          "items": [
+            "Cloud workload security",
+            "Network and edge controls",
+            "Application protection",
+            "Hybrid estate coverage"
+          ]
+        },
+        {
+          "title": "Risk visibility",
+          "items": [
+            "Control gap analysis",
+            "Prioritized remediation",
+            "Compliance alignment",
+            "Residual risk reporting"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our security delivery methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your security posture, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do you support on-premises and cloud environments?",
+          "answer": "Yes. We design and operate security across on-premises, cloud, and hybrid estates so coverage follows the workloads you run."
+        },
+        {
+          "question": "Can you work alongside our existing SOC?",
+          "answer": "We can augment your team with monitoring, hunting, and response, or operate a managed SOC function depending on what you need."
+        },
+        {
+          "question": "How quickly can monitoring go live?",
+          "answer": "Timelines depend on telemetry access and scope, but many engagements begin structured monitoring within a few weeks of kickoff."
+        },
+        {
+          "question": "What threat intelligence sources do you use?",
+          "answer": "We combine commercial feeds, open-source intelligence, and context from your environment to prioritize what matters for your business."
+        },
+        {
+          "question": "How do you report to leadership?",
+          "answer": "Reports focus on what changed, what was blocked or investigated, and which risks still need a decision."
+        }
+      ]
+    },
+    "solution:network-solution": {
+      "benefitsTitle": "Key benefits of network solutions",
+      "benefits": [
+        {
+          "title": "Reliable connectivity",
+          "items": [
+            "Architecture for uptime",
+            "Capacity planning",
+            "Path redundancy",
+            "Performance baselines"
+          ]
+        },
+        {
+          "title": "Segmentation & access",
+          "items": [
+            "Zero-trust aligned design",
+            "Site and user access",
+            "East-west containment",
+            "Policy simplification"
+          ]
+        },
+        {
+          "title": "Operational visibility",
+          "items": [
+            "Critical path monitoring",
+            "Change control support",
+            "Documentation for teams",
+            "Incident-ready runbooks"
+          ]
+        },
+        {
+          "title": "Secure evolution",
+          "items": [
+            "Migration planning",
+            "Phased rollouts",
+            "Validation testing",
+            "Handover to operations"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our network delivery methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your network estate, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can you redesign without major downtime?",
+          "answer": "We plan changes in phases, with rollback paths and maintenance windows agreed upfront."
+        },
+        {
+          "question": "Do you support SD-WAN and remote access?",
+          "answer": "Yes. Secure remote access and modern WAN designs are part of typical network engagements."
+        },
+        {
+          "question": "How do you limit lateral movement?",
+          "answer": "Segmentation, identity-aware access, and monitoring on critical paths are core design goals."
+        },
+        {
+          "question": "Will our internal team receive documentation?",
+          "answer": "Yes. Designs, as-built diagrams, and operating notes are part of delivery."
+        }
+      ]
+    },
+    "solution:application-delivery-solution": {
+      "benefitsTitle": "Key benefits of application delivery",
+      "benefits": [
+        {
+          "title": "Availability & performance",
+          "items": [
+            "Load and traffic design",
+            "Health monitoring",
+            "Capacity reviews",
+            "User experience tuning"
+          ]
+        },
+        {
+          "title": "Secure delivery",
+          "items": [
+            "WAF and edge protection",
+            "TLS and certificate hygiene",
+            "Release gate checks",
+            "Traffic inspection"
+          ]
+        },
+        {
+          "title": "Release confidence",
+          "items": [
+            "Repeatable deployments",
+            "Rollback planning",
+            "Staging validation",
+            "Change windows"
+          ]
+        },
+        {
+          "title": "Operations alignment",
+          "items": [
+            "Runbooks for app teams",
+            "Shared dashboards",
+            "Escalation paths",
+            "Post-release reviews"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our application delivery methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your application delivery stack, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can you help with both legacy and cloud-native apps?",
+          "answer": "Yes. We work across traditional datacenter apps and cloud-native services."
+        },
+        {
+          "question": "Do you integrate with our CI/CD pipeline?",
+          "answer": "We align delivery controls and security checks with the pipelines your teams already use where possible."
+        },
+        {
+          "question": "How do you prevent outages during releases?",
+          "answer": "Phased rollouts, health checks, and rollback plans are standard in our delivery approach."
+        },
+        {
+          "question": "Can you improve performance without replacing the app?",
+          "answer": "Often yes—through traffic management, caching, and infrastructure tuning before larger rewrites."
+        }
+      ]
+    },
+    "solution:identity-access-management-iam": {
+      "benefitsTitle": "Key benefits of IAM",
+      "benefits": [
+        {
+          "title": "Strong authentication",
+          "items": [
+            "Single sign-on",
+            "MFA rollout",
+            "Conditional access",
+            "Passwordless where suitable"
+          ]
+        },
+        {
+          "title": "Lifecycle control",
+          "items": [
+            "Joiner-mover-leaver",
+            "Role-based access",
+            "Access reviews",
+            "Orphan account cleanup"
+          ]
+        },
+        {
+          "title": "Privileged access",
+          "items": [
+            "PAM for admins",
+            "Session logging",
+            "Just-in-time access",
+            "Break-glass procedures"
+          ]
+        },
+        {
+          "title": "Audit readiness",
+          "items": [
+            "Evidence for reviews",
+            "Policy documentation",
+            "Directory integration",
+            "Compliance mapping"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our IAM methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your identity estate, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can you connect cloud and on-premises directories?",
+          "answer": "Yes. Hybrid identity is a common starting point for IAM engagements."
+        },
+        {
+          "question": "How do you reduce excessive permissions?",
+          "answer": "We use role design, access reviews, and privileged access controls tailored to your org structure."
+        },
+        {
+          "question": "Do you support major identity platforms?",
+          "answer": "We work with the platforms enterprises already run, integrating rather than forcing rip-and-replace."
+        },
+        {
+          "question": "How long does an IAM improvement project take?",
+          "answer": "Scope varies; many programs run in phases so high-risk access is addressed first."
+        }
+      ]
+    },
+    "solution:cloud-solution": {
+      "benefitsTitle": "Key benefits of cloud solutions",
+      "benefits": [
+        {
+          "title": "Secure architecture",
+          "items": [
+            "Landing zones",
+            "Network design",
+            "Identity integration",
+            "Guardrails for new workloads"
+          ]
+        },
+        {
+          "title": "Data protection",
+          "items": [
+            "Encryption standards",
+            "Residency choices",
+            "Backup strategy",
+            "Key management"
+          ]
+        },
+        {
+          "title": "Operational control",
+          "items": [
+            "Environment management",
+            "Cost visibility",
+            "Patch and config baselines",
+            "Automation where it helps"
+          ]
+        },
+        {
+          "title": "Scale with confidence",
+          "items": [
+            "Pilot to production path",
+            "Workload onboarding",
+            "Security embedded in design",
+            "Handover to internal teams"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our cloud methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your cloud platform, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Which cloud providers do you support?",
+          "answer": "We work across major hyperscale and hybrid platforms depending on your estate."
+        },
+        {
+          "question": "Is security included from day one?",
+          "answer": "Yes. Guardrails, identity, and workload protection are part of architecture—not an afterthought."
+        },
+        {
+          "question": "Can you migrate existing workloads?",
+          "answer": "We plan migrations in waves with validation, rollback, and security checks at each stage."
+        },
+        {
+          "question": "Do you help internal teams operate the cloud?",
+          "answer": "Documentation, training, and operating models are included in most engagements."
+        }
+      ]
+    },
+    "solution:digital-solutions": {
+      "benefitsTitle": "Key benefits of digital solutions",
+      "benefits": [
+        {
+          "title": "Web applications",
+          "items": [
+            "Enterprise web apps",
+            "Web portals",
+            "Customer-facing apps",
+            "Supply chain management web apps",
+            "Healthcare and analytics web apps",
+            "Inventory web apps"
+          ]
+        },
+        {
+          "title": "Mobile application",
+          "items": [
+            "Mobile apps consulting",
+            "Mobile UX and UI design",
+            "Mobile app development",
+            "Mobile app integration",
+            "Maintenance and support",
+            "Mobile app modernisation"
+          ]
+        },
+        {
+          "title": "Cloud application migration",
+          "items": [
+            "Cloud application migration",
+            "Database migration",
+            "Enterprise system migration",
+            "Data migration"
+          ]
+        },
+        {
+          "title": "UI/UX design",
+          "items": [
+            "Website design",
+            "Web application design",
+            "E-commerce design",
+            "Mobile app design",
+            "SaaS design",
+            "Visual prototype"
+          ]
+        },
+        {
+          "title": "Ecommerce solution",
+          "items": [
+            "Platform-based e-commerce development",
+            "Custom e-commerce development",
+            "E-commerce migration",
+            "E-commerce website design",
+            "E-commerce integration"
+          ]
+        },
+        {
+          "title": "Quality analysis",
+          "items": [
+            "Performance benchmarking",
+            "Automated testing",
+            "Manual testing"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our digital solutions methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover & define",
+          "text": "We capture business goals, users, and constraints so scope, UX, and technical choices stay aligned."
+        },
+        {
+          "step": "02",
+          "title": "Design experience",
+          "text": "Wireframes, prototypes, and UI systems are validated before engineering begins."
+        },
+        {
+          "step": "03",
+          "title": "Build & integrate",
+          "text": "Development, API integration, and security checks proceed in iterative releases."
+        },
+        {
+          "step": "04",
+          "title": "Launch & improve",
+          "text": "Testing, deployment, monitoring, and enhancement cycles keep the product reliable in production."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What UI technologies do you specialize in for building modern web applications?",
+          "answer": "We excel in HTML, CSS, JavaScript, and frameworks such as React, Angular, Vue.js, Semantic UI, and SASS to create responsive and engaging user interfaces."
+        },
+        {
+          "question": "Can you build cross-platform and native mobile applications?",
+          "answer": "Yes, we develop mobile apps using React Native, Flutter, Android, and iOS (Swift) for both cross-platform and native solutions."
+        },
+        {
+          "question": "Which backend programming technologies do you support?",
+          "answer": "Our backend expertise includes Java (Spring Boot, Play Framework), PHP (Laravel), Node.js, Scala, and Python, offering scalable architectures for diverse application needs."
+        },
+        {
+          "question": "What database technologies do you support for my project?",
+          "answer": "We support a wide range of databases, including MySQL, MongoDB, PostgreSQL, MSSQL, Oracle, and DB2, to handle secure and optimized data management."
+        },
+        {
+          "question": "How do your UI/UX designs enhance user engagement?",
+          "answer": "Our designs leverage the latest technologies and frameworks to deliver intuitive, user-friendly, and visually appealing interfaces tailored to the target audience."
+        },
+        {
+          "question": "Can you help us with both web and mobile application development?",
+          "answer": "Absolutely. We provide full-stack development services for both web and mobile applications, ensuring seamless integration and consistent user experiences across platforms."
+        },
+        {
+          "question": "Do you provide scalable and future-ready application architectures?",
+          "answer": "Yes, our solutions are designed to be scalable and adaptable, using cutting-edge technologies to support growth and evolving business needs."
+        },
+        {
+          "question": "Can you help modernize our legacy systems with current technology?",
+          "answer": "We offer expertise in modern frameworks and programming languages to upgrade and optimize legacy systems for enhanced performance and compatibility."
+        },
+        {
+          "question": "What makes your digital solutions stand out?",
+          "answer": "Our solutions focus on innovation, scalability, and user-centric design, supported by a diverse stack of technologies and frameworks for tailored results."
+        },
+        {
+          "question": "How do you ensure robust security for applications and data?",
+          "answer": "We follow industry best practices, leveraging secure programming and database management techniques to protect applications and sensitive data comprehensively."
+        }
+      ]
+    },
+    "service:professional-services": {
+      "ctaTitle": "Get in touch with our experts",
+      "ctaText": "Share your goals and timeline. We will respond with a practical scope, delivery model, and clear next step for your security or digital initiative.",
+      "benefitsTitle": "Key Benefits of Professional Services",
+      "benefits": [
+        {
+          "title": "Cybersecurity Strategy & Implementation",
+          "description": "We provide Cybersecurity Strategy & Implementation services to enhance security frameworks, assessing risks and deploying effective solutions to safeguard assets.",
+          "actionLabel": "Download datasheet"
+        },
+        {
+          "title": "Network Design and Optimization",
+          "description": "We offer Network Design and Optimization services, analyzing infrastructure to create efficient, scalable networks that ensure reliable connectivity and performance."
+        },
+        {
+          "title": "Automation and Digital Transformation",
+          "description": "We specialize in Automation and Digital Transformation, streamlining processes and integrating technologies to enhance operational efficiency and drive business growth."
+        },
+        {
+          "title": "Threat Hunting and Mitigation",
+          "description": "We offer Threat Hunting and Mitigation services, proactively identifying and addressing threats to strengthen your organization's security posture and resilience."
+        },
+        {
+          "title": "Cloud Solutions",
+          "description": "We provide Cloud Solutions to optimize your operations, offering scalable resources, enhanced security, and seamless integration for effective digital transformation."
+        }
+      ],
+      "methodologyTitle": "Our Professional Services Methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Assessment & Discovery",
+          "text": "We begin by understanding your current infrastructure, security posture, and business objectives to identify gaps and opportunities for improvement."
+        },
+        {
+          "step": "02",
+          "title": "Strategy Development",
+          "text": "Based on the assessment, we develop a customized strategy that aligns with your goals, focusing on risk mitigation, scalability, and efficiency."
+        },
+        {
+          "step": "03",
+          "title": "Implementation & Integration",
+          "text": "Our expert team works seamlessly to implement solutions, integrating them into your existing systems with minimal disruption, ensuring smooth transitions."
+        },
+        {
+          "step": "04",
+          "title": "Continuous Monitoring & Support",
+          "text": "Post-implementation, we provide ongoing monitoring, support, and optimization to ensure continuous alignment with your security and business needs."
+        },
+        {
+          "step": "05",
+          "title": "Training & Empowerment",
+          "text": "We offer training and knowledge transfer so your teams are equipped to handle future challenges and maintain optimal system performance."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a red team exercise?",
+          "answer": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "question": "What is the difference between pen testing and red teaming?",
+          "answer": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "question": "How long does it take to conduct a red teaming operation?",
+          "answer": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "question": "Could a red team operation cause any damage or disruption?",
+          "answer": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "question": "What sets Fencesense apart from other cybersecurity service providers?",
+          "answer": "Our approach combines deep expertise in cybersecurity with a tailored, proactive methodology, ensuring robust protection, regulatory compliance, and business continuity."
+        },
+        {
+          "question": "How can Fencesense help my organization achieve compliance with industry regulations?",
+          "answer": "Fencesense provides end-to-end compliance consulting, including gap analysis, remediation plans, and ongoing compliance monitoring to help organizations meet industry-specific standards."
+        },
+        {
+          "question": "What types of cybersecurity assessments do you offer?",
+          "answer": "We offer comprehensive assessments, including risk assessments, vulnerability assessments, penetration testing, and compliance audits to identify gaps and improve your cybersecurity posture."
+        },
+        {
+          "question": "Can Fencesense help with cloud security, and how does it work?",
+          "answer": "Yes. We provide cloud security services including secure cloud architecture design, identity and access management, encryption, and compliance monitoring for your cloud infrastructure."
+        },
+        {
+          "question": "How does your incident response service work?",
+          "answer": "We help you prepare for and respond to security breaches with custom response plans, support during incidents, and post-incident analysis to improve future readiness."
+        },
+        {
+          "question": "How do you ensure the privacy and confidentiality of sensitive data during projects?",
+          "answer": "Fencesense employs strict confidentiality agreements and follows industry best practices, including encrypted communication and secure storage, to protect sensitive information."
+        },
+        {
+          "question": "Do you offer customized cybersecurity training for employees?",
+          "answer": "Yes. We offer tailored cybersecurity awareness training to reduce human error and help employees recognize threats such as phishing and social engineering."
+        },
+        {
+          "question": "What industries do you specialize in for cybersecurity solutions?",
+          "answer": "We provide services across finance, healthcare, government, retail, and manufacturing, customized to each industry's regulatory requirements and security challenges."
+        },
+        {
+          "question": "What is your approach to managing and mitigating risks in the enterprise environment?",
+          "answer": "We employ a proactive, risk-based approach—assessing exposure, prioritizing threats, and implementing controls to reduce vulnerabilities and ongoing impact."
+        },
+        {
+          "question": "What are the costs associated with your professional services, and how do you price them?",
+          "answer": "Pricing depends on scope and complexity. We offer fixed-fee projects, hourly rates, and subscription-based services, with a customized quote after initial consultation."
+        }
+      ]
+    },
+    "service:managed-security-services": {
+      "benefitsTitle": "Key benefits of managed security",
+      "benefits": [
+        {
+          "title": "Continuous monitoring",
+          "items": [
+            "SOC operations",
+            "Alert triage",
+            "Escalation to your owners",
+            "Shift coverage"
+          ]
+        },
+        {
+          "title": "Threat intelligence",
+          "items": [
+            "IP, domain, URL context",
+            "Priority scoring",
+            "Campaign tracking",
+            "Analyst briefings"
+          ]
+        },
+        {
+          "title": "Incident support",
+          "items": [
+            "Investigation assistance",
+            "Containment guidance",
+            "Communication templates",
+            "Post-incident review"
+          ]
+        },
+        {
+          "title": "Reporting",
+          "items": [
+            "Trend dashboards",
+            "Monthly summaries",
+            "Risk themes",
+            "Improvement backlog"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our managed security methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your SOC scope, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do we need to replace our internal team?",
+          "answer": "No. Managed services can augment your team or operate as a standalone SOC function."
+        },
+        {
+          "question": "What telemetry do you need?",
+          "answer": "Requirements depend on scope; we document onboarding steps during discovery."
+        },
+        {
+          "question": "How are incidents escalated?",
+          "answer": "Runbooks define severity, contacts, and escalation paths agreed at kickoff."
+        }
+      ]
+    },
+    "service:on-demand-professional-expertise": {
+      "benefitsTitle": "Key benefits of on-demand expertise",
+      "benefits": [
+        {
+          "title": "Flexible capacity",
+          "items": [
+            "Short surge support",
+            "Longer program staffing",
+            "Specialist profiles",
+            "Fast onboarding"
+          ]
+        },
+        {
+          "title": "Proven practitioners",
+          "items": [
+            "Security architects",
+            "Cloud engineers",
+            "Network engineers",
+            "SOC analysts"
+          ]
+        },
+        {
+          "title": "Project acceleration",
+          "items": [
+            "Assessments",
+            "Implementations",
+            "Migrations",
+            "Audit preparation"
+          ]
+        },
+        {
+          "title": "Knowledge transfer",
+          "items": [
+            "Pairing with your staff",
+            "Documentation",
+            "Handover sessions",
+            "Reduced dependency over time"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our staffing methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your resource need, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How quickly can someone join?",
+          "answer": "Many requests are filled within days once role and clearance requirements are clear."
+        },
+        {
+          "question": "Can experts work remotely?",
+          "answer": "Yes. On-site support is available when the engagement requires it."
+        },
+        {
+          "question": "Who manages the specialists?",
+          "answer": "Fencesense provides oversight; day-to-day direction comes from your engagement lead."
+        }
+      ]
+    },
+    "service:cloud-services": {
+      "benefitsTitle": "Key benefits of cloud services",
+      "benefits": [
+        {
+          "title": "Platform design",
+          "items": [
+            "Landing zones",
+            "Network topology",
+            "Identity integration",
+            "Service catalog"
+          ]
+        },
+        {
+          "title": "Security embedded",
+          "items": [
+            "Workload protection",
+            "Policy guardrails",
+            "Secrets management",
+            "Vulnerability management"
+          ]
+        },
+        {
+          "title": "Operations",
+          "items": [
+            "Monitoring baselines",
+            "Patch cadence",
+            "Backup validation",
+            "Cost reviews"
+          ]
+        },
+        {
+          "title": "Handover",
+          "items": [
+            "Runbooks",
+            "Training",
+            "Admin transition",
+            "Support model"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our cloud services methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your cloud program, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can you secure multi-cloud estates?",
+          "answer": "Yes. We design guardrails and monitoring that work across providers where you operate."
+        },
+        {
+          "question": "Do you build landing zones from scratch?",
+          "answer": "We can create new foundations or improve what you already run."
+        },
+        {
+          "question": "How do you control cloud sprawl?",
+          "answer": "Guardrails, tagging, and approval workflows are typical parts of cloud programs."
+        }
+      ]
+    },
+    "service:bas-penetration-testing": {
+      "ctaTitle": "Get in touch with our experts",
+      "ctaText": "Tell us about your environment and testing goals. We will propose scope, rules of engagement, and a delivery timeline that fits your risk and compliance needs.",
+      "benefitsTitle": "Key Benefits of BAS & Penetration Testing",
+      "benefits": [
+        {
+          "title": "Proactive Threat Detection",
+          "description": "Identifies vulnerabilities before attackers exploit them, enabling organizations to strengthen defenses and reduce security risks effectively."
+        },
+        {
+          "title": "Continuous Security Validation",
+          "description": "BAS provides ongoing assessment of defenses, ensuring that security controls are consistently effective against emerging threats and attack tactics."
+        },
+        {
+          "title": "Real-World Attack Scenarios",
+          "description": "Simulates actual attack methods to test system resilience, uncover weaknesses, and prepare for potential real-world breaches."
+        },
+        {
+          "title": "Enhanced Incident Response",
+          "description": "Provides insights to improve detection and response capabilities, reducing downtime and minimizing the impact of cyber incidents."
+        },
+        {
+          "title": "Regulatory Compliance",
+          "description": "Assists in meeting industry standards like GDPR, HIPAA, and PCI-DSS by identifying gaps in security controls."
+        },
+        {
+          "title": "Risk Prioritization",
+          "description": "Highlights the most critical vulnerabilities, enabling organizations to focus remediation efforts on areas that pose the highest risks."
+        },
+        {
+          "title": "Improved Security Awareness",
+          "description": "Educates teams on attack methods and strengthens organizational security culture through detailed reports and actionable recommendations."
+        },
+        {
+          "title": "Customizable Testing",
+          "description": "Tailored to your specific environment, ensuring targeted evaluations of systems, applications, and network infrastructure."
+        },
+        {
+          "title": "Third-Party Validation",
+          "description": "Provides an unbiased assessment of your security posture, building confidence with stakeholders and enhancing overall cybersecurity strategy."
+        },
+        {
+          "title": "Cost Savings",
+          "description": "Reduces long-term costs by preventing breaches and minimizing damage to reputation, operations, and compliance penalties."
+        }
+      ],
+      "methodologyTitle": "Our BAS & Penetration Testing Methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Planning & Scoping",
+          "text": "We align on targets, rules of engagement, and success criteria with your stakeholders so testing matches business risk and compliance needs."
+        },
+        {
+          "step": "02",
+          "title": "Vulnerability Assessment",
+          "text": "Structured assessment identifies misconfigurations and weaknesses across applications, infrastructure, and cloud assets."
+        },
+        {
+          "step": "03",
+          "title": "Penetration Testing & BAS",
+          "text": "Manual and automated techniques simulate realistic attack paths while breach and attack simulation validates detective and preventive controls."
+        },
+        {
+          "step": "04",
+          "title": "Reporting & Remediation",
+          "text": "Findings are prioritized by exploitability and business impact, with clear remediation guidance and optional retest to confirm fixes."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between penetration testing and breach and attack simulation?",
+          "answer": "Penetration testing focuses on finding and exploiting specific weaknesses in a point-in-time assessment. BAS continuously or periodically simulates attack techniques to validate that security controls detect and block threats as expected."
+        },
+        {
+          "question": "Will testing disrupt production systems?",
+          "answer": "We agree rules of engagement and maintenance windows upfront. Intrusive tests use safe techniques where required, and high-risk actions are coordinated with your team."
+        },
+        {
+          "question": "How often should we run BAS and penetration tests?",
+          "answer": "Many regulated and high-risk organizations test at least annually and after major changes. BAS can run more frequently to keep validation aligned with evolving threats."
+        },
+        {
+          "question": "Do you provide retesting after remediation?",
+          "answer": "Yes. Retests confirm that critical findings were fixed effectively and give leadership evidence of closure."
+        },
+        {
+          "question": "Can testing help with GDPR, HIPAA, or PCI-DSS expectations?",
+          "answer": "Structured VA/PT and BAS programs support control validation and gap identification that auditors and assessors commonly expect as part of a broader compliance program."
+        }
+      ]
+    },
+    "service:threat-hunting": {
+      "benefitsTitle": "Key benefits of threat hunting",
+      "benefits": [
+        {
+          "title": "Hypothesis-led hunts",
+          "items": [
+            "Technique-based searches",
+            "Telemetry across estate",
+            "Quiet intrusion detection",
+            "Repeatable playbooks"
+          ]
+        },
+        {
+          "title": "Detection improvement",
+          "items": [
+            "New use cases",
+            "Tuning recommendations",
+            "Gap closure",
+            "SOC enablement"
+          ]
+        },
+        {
+          "title": "Clear outcomes",
+          "items": [
+            "Findings briefings",
+            "Benign vs malicious clarity",
+            "Next-step actions",
+            "Leadership summaries"
+          ]
+        },
+        {
+          "title": "Adversary alignment",
+          "items": [
+            "Current TTP focus",
+            "Sector-relevant threats",
+            "Intel-driven hypotheses",
+            "Continuous refinement"
+          ]
+        }
+      ],
+      "methodologyTitle": "Our threat hunting methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your hunt program, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What data sources do hunts use?",
+          "answer": "Endpoint, identity, network, and cloud telemetry you already collect—or we help you onboard gaps."
+        },
+        {
+          "question": "How is hunting different from monitoring?",
+          "answer": "Hunts proactively search for behaviors alerts may miss, based on current adversary activity."
+        },
+        {
+          "question": "Do you leave behind detections?",
+          "answer": "Yes. Sustainable detections and runbooks are a core deliverable."
+        }
+      ]
+    },
+    "service:breach-detection": {
+      "benefitsTitle": "Key Benefits of Breach Detection",
+      "benefits": [
+        {
+          "title": "Continuous Monitoring",
+          "icon": "/solutions/security.png",
+          "description": "Real-time monitoring of network traffic, endpoints, and logs to detect unauthorized access and unusual activities."
+        },
+        {
+          "title": "Incident Investigation",
+          "icon": "/solutions/network.png",
+          "description": "Detailed analysis to determine the root cause of breaches, assess the extent of impact, and identify compromised assets."
+        },
+        {
+          "title": "Threat Intelligence Integration",
+          "icon": "/solutions/application.png",
+          "description": "Utilizes global threat databases and AI-driven insights to recognize advanced persistent threats (APTs)."
+        },
+        {
+          "title": "Rapid Response",
+          "icon": "/solutions/cloud.png",
+          "description": "Incident response capabilities to contain breaches quickly and minimize downtime."
+        }
+      ],
+      "methodologyTitle": "Our breach detection methodology",
+      "methodology": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "text": "We review your detection program, stakeholders, and constraints so the scope matches how the business actually runs."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "text": "Architecture, controls, and delivery plans are documented with your internal owners before build starts."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "text": "Implementation, validation, and handover happen in stages so operations are not disrupted."
+        },
+        {
+          "step": "04",
+          "title": "Improve",
+          "text": "Reporting, tuning, and follow-on work keep the outcome aligned as threats and priorities change."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can this work with our existing SIEM?",
+          "answer": "Yes. We tune and extend detections in the platforms you operate."
+        },
+        {
+          "question": "Do you help during live incidents?",
+          "answer": "Investigation support and containment guidance are available as part of the service scope."
+        },
+        {
+          "question": "How do you measure improvement?",
+          "answer": "We track coverage, mean time to detect, and recurring false-positive themes over time."
+        }
+      ]
+    }
+  }
+}

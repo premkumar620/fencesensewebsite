@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionHeading from "../components/SectionHeading";
 import { useEnquiry } from "../context/EnquiryContext";
-import { offerings, phone, phoneHref, stats } from "../data";
+import { useSite } from "../context/SiteContext";
 
-const capabilities = [
+const DEFAULT_CAPABILITIES = [
   "Cybersecurity Solutions",
   "Network Solution",
   "Application Delivery Solution",
@@ -13,6 +13,9 @@ const capabilities = [
 ];
 
 export default function About() {
+  const { offerings, pages, phoneHref, stats } = useSite();
+  const about = pages.about ?? {};
+  const capabilities = about.capabilities?.length ? about.capabilities : DEFAULT_CAPABILITIES;
   const { openEnquiry } = useEnquiry();
   const [statsVisible, setStatsVisible] = useState(false);
 
@@ -41,48 +44,55 @@ export default function About() {
           aria-hidden="true"
           style={{ "--detail-hero-image": 'url("/about/about-banner.jpeg")' }}
         />
-        <div className="container about-hero-copy">
-          <h1>About Us</h1>
-          <p>
-            At Fencesense Technologies Pvt. Ltd., we provide cutting-edge cybersecurity, network management, application
-            delivery, DevOps, and cloud security solutions, helping businesses navigate complex digital landscapes with
-            tailored strategies for success.
-          </p>
-          <div className="detail-hero-actions">
-            <button type="button" className="btn" onClick={openEnquiry}>
-              Ask experts
-            </button>
-            <a className="btn detail-btn-outline" href={phoneHref}>
-              Schedule call
-            </a>
+        <div className="container about-hero-inner">
+          <div className="about-hero-copy">
+            <h1>{about.title ?? "About Us"}</h1>
+            <p className="about-hero-lede">
+              {about.heroLede ??
+                "At Fencesense Technologies Pvt Ltd, we provide cutting-edge cybersecurity, network management, application delivery, DevOps, and cloud security solutions, helping businesses navigate complex digital landscapes with tailored strategies for success."}
+            </p>
+            <div className="about-hero-actions">
+              <button type="button" className="btn about-hero-btn" onClick={openEnquiry}>
+                Ask Experts
+              </button>
+              <a className="btn about-hero-btn" href={phoneHref}>
+                Schedule Call
+                <PhoneIcon />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="band about-shield-band">
         <div className="container about-shield-grid">
-          <div>
+          <figure className="about-shield-media">
+            <div className="about-shield-frame">
+              <img src="/about/digital-shield.png" alt="Security analyst monitoring systems" />
+            </div>
+          </figure>
+
+          <div className="about-shield-copy">
             <SectionHeading
-              kicker="Leading the charge in cyber defence innovation"
-              title="Digital Shield*"
+              kicker={about.shieldKicker ?? "Leading the charge in cyber defence innovation"}
+              title={about.shieldTitle ?? "Digital Shield*"}
               align="left"
             />
-            <p className="lede">
-              At Fencesense, we are committed to securing your digital world. Our expertise in cutting-edge
-              cybersecurity solutions ensures your business remains protected against evolving threats.
+            <p className="about-shield-lede">
+              {about.shieldLede ??
+                "At Fencesense, we are committed to securing your digital world. Our expertise in cutting-edge cybersecurity solutions ensures your business remains protected against evolving threats."}
             </p>
-            <ul className="about-capability-list">
+            <ul className="about-capability-grid">
               {capabilities.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="about-capability-pill">
+                  <span className="about-capability-check" aria-hidden="true">
+                    <CheckIcon />
+                  </span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
-            <a className="about-phone" href={phoneHref}>
-              Call us: {phone}
-            </a>
           </div>
-          <figure className="about-shield-media">
-            <img src="/about/digital-shield.png" alt="Security analyst monitoring systems" />
-          </figure>
         </div>
       </section>
 
@@ -90,10 +100,10 @@ export default function About() {
         <div className="about-map-band-bg" aria-hidden="true" />
         <div className="container about-map-band-inner">
           <div className="about-impact-head">
-            <h2>Security monitoring and malware protection for businesses.</h2>
+            <h2>{about.impactTitle ?? "Security monitoring and malware protection for businesses."}</h2>
             <p>
-              At Fencesense, we are committed to securing your digital world. Our expertise in cutting-edge
-              cybersecurity solutions ensures your business remains protected against evolving threats.
+              {about.impactBody ??
+                "At Fencesense, we are committed to securing your digital world. Our expertise in cutting-edge cybersecurity solutions ensures your business remains protected against evolving threats."}
             </p>
           </div>
 
@@ -137,6 +147,28 @@ export default function About() {
         </div>
       </section>
     </div>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M6.6 3.5c.4-.9 1.5-1.2 2.3-.7l2.2 1.3c.7.4.9 1.3.5 2l-1 1.7c.8 1.6 2.2 3 3.8 3.8l1.7-1c.7-.4 1.6-.2 2 .5l1.3 2.2c.5.8.2 1.9-.7 2.3l-1.5.6c-2.5 1-5.3-.2-7.4-2.3S2.6 9.6 3.6 7.1l.6-1.5z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+      <path d="M2.5 6l2.2 2.2L9.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 

@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { email, posts, services, solutions } from "../data";
+import { useSite } from "../context/SiteContext";
 
 export function Privacy() {
+  const { email } = useSite();
+
   useEffect(() => {
     document.title = "Privacy Policy | Fencesense";
   }, []);
@@ -43,6 +45,8 @@ export function Terms() {
 }
 
 export function Sitemap() {
+  const { posts, services, solutions } = useSite();
+
   useEffect(() => {
     document.title = "Sitemap | Fencesense";
   }, []);
@@ -59,11 +63,13 @@ export function Sitemap() {
           </li>
         ))}
         <li><Link to="/contact">Contact us</Link></li>
+        <li><Link to="/services">Services overview</Link></li>
         {services.map((item) => (
           <li key={item.slug}>
             <Link to={`/services/${item.slug}`}>{item.title}</Link>
           </li>
         ))}
+        <li><Link to="/solutions">Solutions overview</Link></li>
         {solutions.map((item) => (
           <li key={item.slug}>
             <Link to={`/solutions/${item.slug}`}>{item.title}</Link>

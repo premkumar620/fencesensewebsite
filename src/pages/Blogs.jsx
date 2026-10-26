@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SectionHeading from "../components/SectionHeading";
-import { posts } from "../data";
+import { useSite } from "../context/SiteContext";
 
 export default function Blogs() {
+  const { posts } = useSite();
+
   useEffect(() => {
     document.title = "Blogs | Fencesense";
   }, []);

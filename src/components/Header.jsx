@@ -1,20 +1,27 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { services, solutions } from "../data";
+import { useSite } from "../context/SiteContext";
 import { useEnquiry } from "../context/EnquiryContext";
 
 export default function Header() {
+  const { services, solutions } = useSite();
   const { openEnquiry } = useEnquiry();
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdown, setDropdown] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
   }, []);
 
   useEffect(() => {
@@ -29,12 +36,13 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  const solid = scrolled || pathname !== "/" || menuOpen;
+  const solid = scrolled || menuOpen;
 
   return (
-    <header className={`site-header ${solid ? "is-solid" : ""}`}>
+    <header className={`site-header site-header--premium ${solid ? "is-solid" : "is-transparent"} ${mounted ? "is-mounted" : ""}`}>
+      <div className="site-header-glow" aria-hidden="true" />
       <div className="container header-bar">
-        <Link to="/" className="brand" aria-label="Fencesense home">
+        <Link to="/" className="brand header-reveal" aria-label="Fencesense home">
           <img src="/logo.png" alt="Fencesense" />
         </Link>
 
@@ -51,13 +59,16 @@ export default function Header() {
         </button>
 
         <nav className={`main-nav ${menuOpen ? "is-open" : ""}`}>
-          <NavLink to="/" end>
+          <NavLink to="/" end className="header-reveal" style={{ animationDelay: "0.05s" }}>
             Home
           </NavLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about" className="header-reveal" style={{ animationDelay: "0.1s" }}>
+            About
+          </NavLink>
 
           <div
-            className={`nav-drop ${dropdown === "services" ? "is-open" : ""}`}
+            className={`nav-drop header-reveal ${dropdown === "services" ? "is-open" : ""}`}
+            style={{ animationDelay: "0.15s" }}
             onMouseEnter={() => setDropdown("services")}
             onMouseLeave={() => setDropdown(null)}
           >
@@ -71,6 +82,9 @@ export default function Header() {
               <Chevron />
             </button>
             <div className="drop-panel">
+              <Link to="/services" className="drop-panel-overview">
+                All services
+              </Link>
               {services.map((item) => (
                 <Link key={item.slug} to={`/services/${item.slug}`}>
                   {item.title}
@@ -80,7 +94,8 @@ export default function Header() {
           </div>
 
           <div
-            className={`nav-drop ${dropdown === "solutions" ? "is-open" : ""}`}
+            className={`nav-drop header-reveal ${dropdown === "solutions" ? "is-open" : ""}`}
+            style={{ animationDelay: "0.2s" }}
             onMouseEnter={() => setDropdown("solutions")}
             onMouseLeave={() => setDropdown(null)}
           >
@@ -94,6 +109,9 @@ export default function Header() {
               <Chevron />
             </button>
             <div className="drop-panel">
+              <Link to="/solutions" className="drop-panel-overview">
+                All solutions
+              </Link>
               {solutions.map((item) => (
                 <Link key={item.slug} to={`/solutions/${item.slug}`}>
                   {item.title}
@@ -102,10 +120,19 @@ export default function Header() {
             </div>
           </div>
 
-          <NavLink to="/blogs">Blogs</NavLink>
-          <NavLink to="/contact">Contact us</NavLink>
+          <NavLink to="/blogs" className="header-reveal" style={{ animationDelay: "0.25s" }}>
+            Blogs
+          </NavLink>
+          <NavLink to="/contact" className="header-reveal" style={{ animationDelay: "0.3s" }}>
+            Contact us
+          </NavLink>
 
-          <button type="button" className="btn btn-small nav-cta" onClick={openEnquiry}>
+          <button
+            type="button"
+            className="btn btn-small nav-cta header-reveal header-cta-glow"
+            style={{ animationDelay: "0.35s" }}
+            onClick={openEnquiry}
+          >
             Schedule a Demo
           </button>
         </nav>

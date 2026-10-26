@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { email, phone, phoneHref } from "../data";
 import { useEnquiry } from "../context/EnquiryContext";
+import { useSite } from "../context/SiteContext";
+import { mailtoEnquiry, sendEnquiry } from "../utils/enquirySubmit";
 
 export default function EnquiryDrawer() {
+  const { email, phone, phoneHref } = useSite();
   const { open, closeEnquiry } = useEnquiry();
   const [sent, setSent] = useState(false);
+  const [submitVia, setSubmitVia] = useState("api");
 
   useEffect(() => {
     if (!open) return undefined;
@@ -19,15 +22,23 @@ export default function EnquiryDrawer() {
     if (!open) setSent(false);
   }, [open]);
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") || "").trim();
     const mail = String(data.get("email") || "").trim();
     const mobile = String(data.get("phone") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const body = `Name: ${name}\nEmail: ${mail}\nPhone: ${mobile}\n\n${message}`;
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(`Website enquiry from ${name}`)}&body=${encodeURIComponent(body)}`;
+    const payload = { name, email: mail, phone: mobile, message };
+    const result = await sendEnquiry(payload);
+    if (result.ok) {
+      setSubmitVia("api");
+      setSent(true);
+      event.currentTarget.reset();
+      return;
+    }
+    mailtoEnquiry(email, payload);
+    setSubmitVia("mailto");
     setSent(true);
   }
 
@@ -49,7 +60,9 @@ export default function EnquiryDrawer() {
         </p>
         {sent ? (
           <p className="form-success" role="status">
-            Your email app should open with the enquiry filled in. If it does not, write to {email}.
+            {submitVia === "api"
+              ? "Thank you — we received your message and will respond shortly."
+              : `Your email app should open with the enquiry filled in. If it does not, write to ${email}.`}
           </p>
         ) : (
           <form onSubmit={onSubmit}>

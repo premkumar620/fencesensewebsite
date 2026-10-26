@@ -1,10 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { posts } from "../data";
+import { fetchBlogPost } from "../api/client";
+import { useSite } from "../context/SiteContext";
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const post = posts.find((entry) => entry.slug === slug);
+  const { posts } = useSite();
+  const listPost = posts.find((entry) => entry.slug === slug);
+  const [post, setPost] = useState(listPost);
+
+  useEffect(() => {
+    setPost(listPost);
+  }, [listPost]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchBlogPost(slug)
+      .then((data) => {
+        if (!cancelled) setPost(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
 
   useEffect(() => {
     document.title = post ? `${post.title} | Fencesense` : "Article | Fencesense";
