@@ -1,4 +1,7 @@
+from django.core.exceptions import ValidationError
 from django.db import models
+
+from .images import image_src, validate_image_upload
 
 
 class CompanyProfile(models.Model):
@@ -109,10 +112,28 @@ class Testimonial(models.Model):
     quote = models.TextField()
     name = models.CharField(max_length=120)
     role = models.CharField(max_length=200, help_text="e.g. CIO - Company name")
-    logo = models.CharField(max_length=500, help_text="Image path or URL, e.g. /testimonials/logo.svg")
+    logo = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional path, e.g. /testimonials/logo.svg. Ignored when a file is uploaded.",
+    )
+    logo_file = models.FileField(
+        upload_to="testimonials/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload a logo. This is used instead of the path above.",
+    )
     sort_order = models.PositiveSmallIntegerField(default=0)
     is_published = models.BooleanField(default=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def resolved_logo(self):
+        return image_src(self.logo_file, self.logo)
+
+    def clean(self):
+        super().clean()
+        if not self.logo and not self.logo_file:
+            raise ValidationError("Upload a logo or enter an image path.")
 
     class Meta:
         ordering = ["sort_order", "id"]
@@ -126,7 +147,17 @@ class Testimonial(models.Model):
 class PartnerLogo(models.Model):
     """Partner companies marquee logos."""
 
-    image = models.CharField(max_length=500, help_text="e.g. /partners/01.png")
+    image = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional path, e.g. /partners/01.png. Ignored when a file is uploaded.",
+    )
+    image_file = models.FileField(
+        upload_to="partners/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload a logo. This is used instead of the path above.",
+    )
     alt_text = models.CharField(max_length=200, blank=True)
     sort_order = models.PositiveSmallIntegerField(default=0)
     is_published = models.BooleanField(default=True)
@@ -136,14 +167,32 @@ class PartnerLogo(models.Model):
         verbose_name = "Partner logo"
         verbose_name_plural = "Partner logos"
 
+    def resolved_image(self):
+        return image_src(self.image_file, self.image)
+
+    def clean(self):
+        super().clean()
+        if not self.image and not self.image_file:
+            raise ValidationError("Upload a logo or enter an image path.")
+
     def __str__(self):
-        return self.alt_text or self.image
+        return self.alt_text or self.image or "Partner logo"
 
 
 class CustomerLogo(models.Model):
     """Our Customers logo strip (below testimonials)."""
 
-    image = models.CharField(max_length=500, help_text="e.g. /customers/01.png")
+    image = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional path, e.g. /customers/01.png. Ignored when a file is uploaded.",
+    )
+    image_file = models.FileField(
+        upload_to="customers/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload a logo. This is used instead of the path above.",
+    )
     alt_text = models.CharField(max_length=200, blank=True)
     sort_order = models.PositiveSmallIntegerField(default=0)
     is_published = models.BooleanField(default=True)
@@ -153,8 +202,16 @@ class CustomerLogo(models.Model):
         verbose_name = "Customer logo"
         verbose_name_plural = "Customer logos"
 
+    def resolved_image(self):
+        return image_src(self.image_file, self.image)
+
+    def clean(self):
+        super().clean()
+        if not self.image and not self.image_file:
+            raise ValidationError("Upload a logo or enter an image path.")
+
     def __str__(self):
-        return self.alt_text or self.image
+        return self.alt_text or self.image or "Customer logo"
 
 
 class Office(models.Model):

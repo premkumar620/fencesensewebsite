@@ -87,21 +87,36 @@ class SocialLinkSerializer(serializers.ModelSerializer):
 
 
 class TestimonialSerializer(serializers.ModelSerializer):
+    logo = serializers.SerializerMethodField()
+
     class Meta:
         model = Testimonial
         fields = ("id", "quote", "name", "role", "logo", "sort_order")
 
+    def get_logo(self, obj):
+        return obj.resolved_logo()
+
 
 class PartnerLogoSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = PartnerLogo
         fields = ("id", "image", "alt_text", "sort_order")
 
+    def get_image(self, obj):
+        return obj.resolved_image()
+
 
 class CustomerLogoSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = CustomerLogo
         fields = ("id", "image", "alt_text", "sort_order")
+
+    def get_image(self, obj):
+        return obj.resolved_image()
 
 
 class SiteSettingsSerializer(serializers.ModelSerializer):

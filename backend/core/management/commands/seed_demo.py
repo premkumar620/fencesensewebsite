@@ -21,14 +21,14 @@ from core.models import (
 
 
 class Command(BaseCommand):
-    help = "Seed database from backend/seed_data/snapshot.json (run scripts/build-snapshot.cjs first)."
+    help = "Seed database from backend/seed_data/snapshot.json (run frontend/scripts/build-snapshot.cjs first)."
 
     def handle(self, *args, **options):
         snapshot_path = Path(__file__).resolve().parents[3] / "seed_data" / "snapshot.json"
         if not snapshot_path.is_file():
             self.stderr.write(
                 self.style.ERROR(
-                    f"Missing {snapshot_path}. Run: node scripts/build-snapshot.cjs"
+                    f"Missing {snapshot_path}. Run: node frontend/scripts/build-snapshot.cjs"
                 )
             )
             return

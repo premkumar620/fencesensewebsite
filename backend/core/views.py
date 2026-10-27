@@ -53,11 +53,11 @@ def published_customer_logos():
 
 
 def partner_logo_paths():
-    return [row.image for row in published_partner_logos()]
+    return [row.resolved_image() for row in published_partner_logos()]
 
 
 def customer_logo_paths():
-    return [row.image for row in published_customer_logos()]
+    return [row.resolved_image() for row in published_customer_logos()]
 
 
 def offering_titles():

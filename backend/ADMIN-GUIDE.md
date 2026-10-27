@@ -54,7 +54,7 @@ Save → refresh the detail page on the site. API builds `detailContent` automat
 2. **Customer logos** — e.g. `/customers/01.png`  
 3. **Customer testimonials** — quote, name, role, logo path  
 
-## First-time / re-import from `src/data.js`
+## First-time / re-import from `frontend/src/data.js`
 
 From **`fencesense`** folder:
 

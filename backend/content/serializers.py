@@ -5,8 +5,15 @@ from .models import BlogPost, Service, Solution
 
 
 class ServiceListSerializer(serializers.ModelSerializer):
-    heroImage = serializers.CharField(source="hero_image")
+    heroImage = serializers.SerializerMethodField()
+    icon = serializers.SerializerMethodField()
     engagementModel = serializers.CharField(source="engagement_model")
+
+    def get_heroImage(self, obj):
+        return obj.resolved_hero_image()
+
+    def get_icon(self, obj):
+        return obj.resolved_icon()
 
     class Meta:
         model = Service
@@ -36,8 +43,15 @@ class ServiceDetailSerializer(ServiceListSerializer):
 
 
 class SolutionListSerializer(serializers.ModelSerializer):
-    heroImage = serializers.CharField(source="hero_image")
+    heroImage = serializers.SerializerMethodField()
+    icon = serializers.SerializerMethodField()
     outcomeSummary = serializers.CharField(source="outcome_summary")
+
+    def get_heroImage(self, obj):
+        return obj.resolved_hero_image()
+
+    def get_icon(self, obj):
+        return obj.resolved_icon()
 
     class Meta:
         model = Solution
@@ -67,9 +81,13 @@ class SolutionDetailSerializer(SolutionListSerializer):
 
 
 class BlogPostListSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
     day = serializers.CharField(source="day_label")
     month = serializers.CharField(source="month_label")
     date = serializers.CharField(source="date_display")
+
+    def get_image(self, obj):
+        return obj.resolved_image()
 
     class Meta:
         model = BlogPost

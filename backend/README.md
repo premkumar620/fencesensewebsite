@@ -1,6 +1,6 @@
 # Fencesense Django backend
 
-REST API and **Django Admin** for managing offices, services, solutions, blog posts, and contact enquiries. Use this with the React/Vite frontend in the repo root.
+REST API and **Django Admin** for managing offices, services, solutions, blog posts, and contact enquiries. Use this with the React/Vite app in the `frontend` folder.
 
 ## Setup
 
@@ -11,7 +11,7 @@ python -m venv .venv
 pip install -r requirements.txt
 copy .env.example .env            # edit secrets if needed
 python manage.py migrate
-node ../scripts/build-snapshot.cjs   # export src/data.js → seed_data/snapshot.json
+node ../frontend/scripts/build-snapshot.cjs   # export frontend/src/data.js → seed_data/snapshot.json
 python manage.py seed_demo
 python manage.py createsuperuser
 python manage.py runserver
@@ -46,7 +46,7 @@ python manage.py runserver
 1. **Offices** — three locations, CIN on New Delhi, sort order, publish flag.
 2. **Site settings** — stats, offerings, social links, page copy (JSON).
 3. **Customer testimonials / Partner logos / Customer logos** — separate admin lists (not JSON).
-4. **Catalog items** — services & solutions; `detail_content` JSON for benefits, methodology, FAQs (same shape as `src/detailContent.js`).
+4. **Catalog items** — services & solutions; `detail_content` JSON for benefits, methodology, FAQs (same shape as `frontend/src/detailContent.js`).
 5. **Blog posts** — list + paragraph JSON for article body.
 6. **Contact enquiries** — submissions from the site.
 7. **Company profile** — global phone, email, CIN.
@@ -59,14 +59,14 @@ npm run api:seed
 
 ## Connect the React app
 
-The Vite app loads **`GET /api/v1/bootstrap/`** on startup (`SiteProvider`) and falls back to `src/data.js` if the API is offline. Detail pages fetch **`/api/v1/content/services|solutions/<slug>/`**; contact forms **POST `/api/v1/enquiries/`** (mailto fallback if the API fails).
+The Vite app loads **`GET /api/v1/bootstrap/`** on startup (`SiteProvider`) and falls back to `frontend/src/data.js` if the API is offline. Detail pages fetch **`/api/v1/content/services|solutions/<slug>/`**; contact forms **POST `/api/v1/enquiries/`** (mailto fallback if the API fails).
 
 ```js
 // vite.config.js — already configured
 server: { proxy: { '/api': 'http://127.0.0.1:8000' } }
 ```
 
-Optional production env: `VITE_API_BASE_URL` (see repo `.env.example`).
+Optional production env: `VITE_API_BASE_URL` (see `frontend/.env.example`).
 
 ## Apps
 

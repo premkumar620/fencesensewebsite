@@ -16,7 +16,7 @@ from .models import (
 class ServiceBenefitInline(admin.TabularInline):
     model = ServiceBenefit
     extra = 1
-    fields = ("sort_order", "title", "description", "bullets", "icon", "action_label")
+    fields = ("sort_order", "title", "description", "bullets", "icon_file", "icon", "action_label")
     ordering = ("sort_order",)
 
 
@@ -46,7 +46,7 @@ class ServiceAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {"fields": ("title", "slug", "kicker", "summary", "sort_order", "is_published")}),
         ("Service-specific", {"fields": ("category", "engagement_model")}),
-        ("Media", {"fields": ("hero_image", "icon")}),
+        ("Media", {"fields": ("hero_image_file", "hero_image", "icon_file", "icon")}),
         ("Body", {"fields": ("paragraphs", "points")}),
         (
             "Detail page — section headings",
@@ -69,7 +69,7 @@ class ServiceAdmin(admin.ModelAdmin):
 class SolutionBenefitInline(admin.TabularInline):
     model = SolutionBenefit
     extra = 1
-    fields = ("sort_order", "title", "description", "bullets", "icon", "action_label")
+    fields = ("sort_order", "title", "description", "bullets", "icon_file", "icon", "action_label")
     ordering = ("sort_order",)
 
 
@@ -99,7 +99,7 @@ class SolutionAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {"fields": ("title", "slug", "kicker", "summary", "sort_order", "is_published")}),
         ("Solution-specific", {"fields": ("domain", "outcome_summary")}),
-        ("Media", {"fields": ("hero_image", "icon")}),
+        ("Media", {"fields": ("hero_image_file", "hero_image", "icon_file", "icon")}),
         ("Body", {"fields": ("paragraphs", "points")}),
         (
             "Detail page — section headings",
@@ -117,7 +117,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     search_fields = ("title", "excerpt")
     fieldsets = (
-        (None, {"fields": ("title", "slug", "excerpt", "author", "image", "published_at", "is_published")}),
+        (None, {"fields": ("title", "slug", "excerpt", "author", "image_file", "image", "published_at", "is_published")}),
         ("Card labels", {"fields": ("day_label", "month_label", "date_display")}),
         ("Article body", {"fields": ("paragraphs", "body")}),
     )

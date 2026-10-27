@@ -3,8 +3,9 @@
 
 def _benefit_dict(block):
     payload = {"title": block.title}
-    if block.icon:
-        payload["icon"] = block.icon
+    icon = block.resolved_icon()
+    if icon:
+        payload["icon"] = icon
     if block.description:
         payload["description"] = block.description
     items = block.bullet_items()

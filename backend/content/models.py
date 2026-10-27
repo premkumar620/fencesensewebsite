@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.images import image_src, validate_image_upload
+
 
 class Service(models.Model):
     """Professional / managed services — separate from product-style solutions."""
@@ -19,8 +21,28 @@ class Service(models.Model):
     summary = models.TextField(blank=True)
     paragraphs = models.JSONField(default=list, blank=True)
     points = models.JSONField(default=list, blank=True)
-    hero_image = models.CharField(max_length=500, blank=True, help_text="Banner, e.g. /services/banners/….png")
-    icon = models.CharField(max_length=500, blank=True, help_text="Optional list icon")
+    hero_image = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional banner path, e.g. /services/banners/….png. Ignored when a file is uploaded.",
+    )
+    hero_image_file = models.FileField(
+        upload_to="services/banners/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload a banner. This is used instead of the path above.",
+    )
+    icon = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional icon path. Ignored when a file is uploaded.",
+    )
+    icon_file = models.FileField(
+        upload_to="services/icons/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload an icon. This is used instead of the path above.",
+    )
     category = models.CharField(
         max_length=32,
         choices=Category.choices,
@@ -59,6 +81,12 @@ class Service(models.Model):
         verbose_name = "Service"
         verbose_name_plural = "Services"
 
+    def resolved_hero_image(self):
+        return image_src(self.hero_image_file, self.hero_image)
+
+    def resolved_icon(self):
+        return image_src(self.icon_file, self.icon)
+
     def __str__(self):
         return self.title
 
@@ -81,8 +109,28 @@ class Solution(models.Model):
     summary = models.TextField(blank=True)
     paragraphs = models.JSONField(default=list, blank=True)
     points = models.JSONField(default=list, blank=True)
-    hero_image = models.CharField(max_length=500, blank=True, help_text="Banner, e.g. /solutions/banners/….jpg")
-    icon = models.CharField(max_length=500, blank=True, help_text="Card icon, e.g. /solutions/security.png")
+    hero_image = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional banner path, e.g. /solutions/banners/….jpg. Ignored when a file is uploaded.",
+    )
+    hero_image_file = models.FileField(
+        upload_to="solutions/banners/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload a banner. This is used instead of the path above.",
+    )
+    icon = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional icon path, e.g. /solutions/security.png. Ignored when a file is uploaded.",
+    )
+    icon_file = models.FileField(
+        upload_to="solutions/icons/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload an icon. This is used instead of the path above.",
+    )
     domain = models.CharField(
         max_length=32,
         choices=Domain.choices,
@@ -113,6 +161,12 @@ class Solution(models.Model):
         verbose_name = "Solution"
         verbose_name_plural = "Solutions"
 
+    def resolved_hero_image(self):
+        return image_src(self.hero_image_file, self.hero_image)
+
+    def resolved_icon(self):
+        return image_src(self.icon_file, self.icon)
+
     def __str__(self):
         return self.title
 
@@ -128,7 +182,17 @@ class ServiceBenefit(models.Model):
         blank=True,
         help_text="One bullet per line — shown as Key benefit body when filled.",
     )
-    icon = models.CharField(max_length=500, blank=True, help_text="Optional icon path.")
+    icon = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional icon path. Ignored when a file is uploaded.",
+    )
+    icon_file = models.FileField(
+        upload_to="services/benefits/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload an icon. This is used instead of the path above.",
+    )
     action_label = models.CharField(max_length=120, blank=True)
     sort_order = models.PositiveSmallIntegerField(default=0)
 
@@ -136,6 +200,9 @@ class ServiceBenefit(models.Model):
         ordering = ["sort_order", "id"]
         verbose_name = "Key benefit"
         verbose_name_plural = "Key benefits"
+
+    def resolved_icon(self):
+        return image_src(self.icon_file, self.icon)
 
     def __str__(self):
         return self.title
@@ -180,7 +247,17 @@ class SolutionBenefit(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     bullets = models.TextField(blank=True, help_text="One bullet per line.")
-    icon = models.CharField(max_length=500, blank=True)
+    icon = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional icon path. Ignored when a file is uploaded.",
+    )
+    icon_file = models.FileField(
+        upload_to="solutions/benefits/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload an icon. This is used instead of the path above.",
+    )
     action_label = models.CharField(max_length=120, blank=True)
     sort_order = models.PositiveSmallIntegerField(default=0)
 
@@ -188,6 +265,9 @@ class SolutionBenefit(models.Model):
         ordering = ["sort_order", "id"]
         verbose_name = "Key benefit"
         verbose_name_plural = "Key benefits"
+
+    def resolved_icon(self):
+        return image_src(self.icon_file, self.icon)
 
     def __str__(self):
         return self.title
@@ -233,7 +313,17 @@ class BlogPost(models.Model):
     excerpt = models.TextField(blank=True)
     body = models.TextField(blank=True)
     author = models.CharField(max_length=120, blank=True)
-    image = models.CharField(max_length=500, blank=True)
+    image = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Optional path, e.g. /blogs/article-1.jpg. Ignored when a file is uploaded.",
+    )
+    image_file = models.FileField(
+        upload_to="blogs/",
+        blank=True,
+        validators=[validate_image_upload],
+        help_text="Upload a cover image. This is used instead of the path above.",
+    )
     day_label = models.CharField(max_length=8, blank=True)
     month_label = models.CharField(max_length=8, blank=True)
     date_display = models.CharField(max_length=64, blank=True)
@@ -243,6 +333,9 @@ class BlogPost(models.Model):
 
     class Meta:
         ordering = ["-published_at", "-id"]
+
+    def resolved_image(self):
+        return image_src(self.image_file, self.image)
 
     def __str__(self):
         return self.title
